@@ -1,7 +1,7 @@
 {
     "alg_params": {
         "NUMBER_OF_GROUPS": 2,
-        "GROUP_SIZE": 2,
+        "GROUP_SIZE": 3,
         "TREE_PRUNE_TRESHOLD": 1000,
         "STEP_MAX_COST": 500,
         "GROUP_BASE_SCORE": 100,
@@ -32,6 +32,18 @@
             "id": 3,
             "affinities": [
                 2
+            ]
+        },
+        {
+            "id": 4,
+            "affinities": [
+                5
+            ]
+        },
+        {
+            "id": 5,
+            "affinities": [
+                4
             ]
         }
     ]
