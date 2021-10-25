@@ -1,10 +1,11 @@
 import time
 import json
 import copy
+from utils import removeElementFromArray, printTree
 start = time.time()
 
 
-with open('sample_data_2.json', encoding='utf-8') as F:
+with open('sample_data_1.json', encoding='utf-8') as F:
     json_data = json.loads(F.read())
 # read sample data and alg_params
 NODES = json_data['data']
@@ -20,6 +21,12 @@ STEP_MAX_COST = alg_params['STEP_MAX_COST']
 GROUP_BASE_COST = alg_params['GROUP_BASE_SCORE']
 LARGE_GROUP_PENALTY = alg_params['LARGE_GROUP_PENALTY']
 AFFINITY_BONUS = alg_params['AFFINITY_BONUS']
+# memoization paramaters
+LEVELS_TO_MEMOIZE = 2
+# memoization variables
+NODE_PAIRING_COSTS = []
+NODE_GROUPING_IDS = []
+NODE_GROUPING_COSTS = [[1], [[2, 3], [3, 4]]]
 
 
 def generateTree(currentTree, remainingElements):
@@ -85,6 +92,7 @@ def generateTree(currentTree, remainingElements):
         return possibleTrees
 
 
+# returns the cost of adding an element to a specific path
 def getCost(currentTree, el):
     cost = GROUP_BASE_COST
 
@@ -98,29 +106,39 @@ def getCost(currentTree, el):
     cost += getNodeToGroupCost(nodesInGroup, el['groupID'], el['id'])
 
     # calculate cost for nodes in grouping
-    cost += getNodeToNodeCost(nodesInGroup, el['id'])
+    cost += getNodeToNodesCost(nodesInGroup, el['id'])
 
     return cost
 
 
 # array of node ids from path ([int]) and id (int)
-def getNodeToNodeCost(nodesInGroup, nodeToAddID):
+def getNodeToNodesCost(nodesInGroup, nodeToAddID):
     cost = 0
-    nodeToAdd = getNodeProperties(nodeToAddID)
-
     # check for affinities
     for groupNode in nodesInGroup:
-        groupNodeProperties = getNodeProperties(groupNode)
+        cost += getNodeToNodeCost(groupNode, nodeToAddID)
 
-        if (groupNodeProperties['affinities']):
-            for affinity in groupNodeProperties['affinities']:
-                if (affinity == nodeToAddID):
-                    cost -= AFFINITY_BONUS
+    return cost
 
-        if (nodeToAdd['affinities']):
-            for affinity in nodeToAdd['affinities']:
-                if (affinity == groupNode):
-                    cost -= AFFINITY_BONUS
+
+# lookup results for node-node pairing in NODE_PAIRING_COSTS
+def getNodeToNodeCost(nodeID1, nodeID2):
+    return NODE_PAIRING_COSTS[nodeID1][nodeID2]
+
+
+# both arguments contain full node data dictionaries
+def calculateNodeToNodeCost(node1, node2):
+    cost = 0
+
+    if (node1['affinities']):
+        for affinity in node1['affinities']:
+            if (affinity == node2['id']):
+                cost -= AFFINITY_BONUS
+
+    if (node2['affinities']):
+        for affinity in node2['affinities']:
+            if (affinity == node1['id']):
+                cost -= AFFINITY_BONUS
 
     return cost
 
@@ -137,31 +155,7 @@ def getNodeToGroupCost(nodesInGroup, groupID, nodeToAddID):
     return cost
 
 
-def removeElementFromArray(arr, el):
-    arr_copy = arr.copy()
-
-    for i in range(0, len(arr)):
-        if arr[i] == el:
-            arr_copy.pop(i)
-            break
-
-    return arr_copy
-
-
-def printTree(tree):
-    string1 = ""
-    string2 = ""
-
-    for element in tree['nodes']:
-        string1 += str(element['id']) + " "
-    for element in tree['nodes']:
-        string2 += str(element['groupID']) + " "
-
-    print(string1)
-    print(string2)
-    print(tree['cost'])
-
-
+# returns full node properties as dictionary
 def getNodeProperties(nodeID):
     for node in NODES:
         if nodeID == node['id']:
@@ -169,15 +163,37 @@ def getNodeProperties(nodeID):
     return {}
 
 
+# precalculate costs for each node-to-node pairings
+# assumes that nodes are sorted by id
+def preCalculateNodeToNodeCosts(nodes):
+    costs = []
+
+    for i in range(0, len(nodes)):
+        currentNode = getNodeProperties(nodes[i])
+        currentCosts = []
+
+        for j in range(0, len(nodes)):
+            comparisonNode = getNodeProperties(nodes[j])
+            currentCosts.append(calculateNodeToNodeCost(currentNode, comparisonNode))  # nopep8
+
+        costs.append(currentCosts)
+
+    return costs
+
+
+# instantiate tree and nodes to be explored
 currentTree = {
     "nodes": [{"groupID": 1, "id": NODES[0]['id']}],
     "cost": 0
 }
-
 remainginNodes = []
 for node in NODES:
     remainginNodes.append(node['id'])
 
+# pre-calculate node pairing costs
+NODE_PAIRING_COSTS = preCalculateNodeToNodeCosts(remainginNodes)
+
+# run binary search alg
 remainginNodes = removeElementFromArray(remainginNodes, NODES[0]['id'])
 possible_trees = generateTree(currentTree, remainginNodes)
 
@@ -212,7 +228,8 @@ print(f"Runtime of the program is {end - start}")
 # {
 #     'groupID': 1,
 #     'properties': {
-#          'id' : 1
+#          'id' : 1,
+#          'affinities': [2, 3]
 #      }
 # }
 

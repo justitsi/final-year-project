@@ -4,7 +4,7 @@ import copy
 start = time.time()
 
 
-with open('sample_data_2.json', encoding='utf-8') as F:
+with open('sample_data_1.json', encoding='utf-8') as F:
     json_data = json.loads(F.read())
 # read sample data and alg_params
 sample = json_data['data']
