@@ -20,3 +20,6 @@ sample_data.json solutions for 2 groups, 3 peers
 Graphs 2 is initial implementation
 Graphs 3 adds lookup table to save memory
 Graphs 4 adds memoization for node-node pairings 
+Graphs 5 tries to remove deepcopies from recursive function
+         + fixes bug where invalid paths with high step cost but low overall cost would be kept
+

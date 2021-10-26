@@ -27,68 +27,65 @@ NODE_GROUPING_IDS = []
 
 
 def generateTree(currentTree, remainingElements):
-    # take out id that will be added to the array
-    idToAdd = remainingElements[0]
-    remainingElementsCopy = removeElementFromArray(remainingElements, remainingElements[0])  # nopep8
+    elementToAdd = {
+        'groupID': None,
+        'id': remainingElements[0]
+    }
+
+    remainingElementsCopy = removeElementFromArray(
+        remainingElements, remainingElements[0])
 
     possibleTrees = []
     returnTrees = []
 
     if (len(remainingElementsCopy) > 0):
         for i in range(0, NUMBER_OF_GROUPS):
-            # instanciate element to add
-            elementToAddCopy = {
-                'groupID': i,
-                'id': idToAdd
-            }
+            # instanciate element copy
+            elementToAddCopy = copy.deepcopy(elementToAdd)
+            elementToAddCopy['groupID'] = i
+            # instanciate tree copy
+            currentTreeCopy = copy.deepcopy(currentTree)
 
             # get cost to add
             costToAdd = getCost(currentTree, elementToAddCopy)
-            totalTreeCost = currentTree['cost'] + costToAdd
+            totalTreeCost = currentTreeCopy['cost'] + costToAdd
 
-            # add info to possible trees if tested tree is OK
+            # add info to currentTreeCopy
             if (costToAdd < STEP_MAX_COST):
                 if (totalTreeCost < TREE_PRUNE_TRESHOLD):
-                    # instanciate copy of currently tested tree
-                    currentTreeCopy = copy.deepcopy(currentTree)
-
                     currentTreeCopy['nodes'].append(elementToAddCopy)
                     currentTreeCopy['cost'] = totalTreeCost
 
-                    possibleTrees.append(currentTreeCopy)
+                possibleTrees.append(currentTreeCopy)
 
-        # re-run the function for valid candidate trees
         for tree in possibleTrees:
+            # print(tree, remainingElementsCopy)
             childTrees = generateTree(tree, remainingElementsCopy)
             for childTree in childTrees:
+                # print(childTree)
                 returnTrees.append(childTree)
 
         return returnTrees
-
     else:
         for i in range(0, NUMBER_OF_GROUPS):
-            # instanciate element to add
-            elementToAddCopy = {
-                'groupID': i,
-                'id': idToAdd
-            }
+            # instanciate element copy
+            elementToAddCopy = copy.deepcopy(elementToAdd)
+            elementToAddCopy['groupID'] = i
+            # instanciate tree copy
+            currentTreeCopy = copy.deepcopy(currentTree)
 
             # get cost to add
             costToAdd = getCost(currentTree, elementToAddCopy)
-            totalTreeCost = currentTree['cost'] + costToAdd
+            totalTreeCost = currentTreeCopy['cost'] + costToAdd
 
-            # add info to possible trees if tested tree is OK
+            # add info to currentTreeCopy
             if (costToAdd < STEP_MAX_COST):
                 if (totalTreeCost < TREE_PRUNE_TRESHOLD):
-                    # instanciate copy of currently tested tree
-                    currentTreeCopy = copy.deepcopy(currentTree)
-
                     currentTreeCopy['nodes'].append(elementToAddCopy)
                     currentTreeCopy['cost'] = totalTreeCost
 
                     possibleTrees.append(currentTreeCopy)
 
-        # return bottom-level path costs
         return possibleTrees
 
 
