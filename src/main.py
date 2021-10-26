@@ -5,7 +5,7 @@ from utils import removeElementFromArray, printTree
 start = time.time()
 
 
-with open('sample_data_1.json', encoding='utf-8') as F:
+with open('sample_data_2.json', encoding='utf-8') as F:
     json_data = json.loads(F.read())
 # read sample data and alg_params
 NODES = json_data['data']
@@ -21,12 +21,9 @@ STEP_MAX_COST = alg_params['STEP_MAX_COST']
 GROUP_BASE_COST = alg_params['GROUP_BASE_SCORE']
 LARGE_GROUP_PENALTY = alg_params['LARGE_GROUP_PENALTY']
 AFFINITY_BONUS = alg_params['AFFINITY_BONUS']
-# memoization paramaters
-LEVELS_TO_MEMOIZE = 2
 # memoization variables
 NODE_PAIRING_COSTS = []
 NODE_GROUPING_IDS = []
-NODE_GROUPING_COSTS = [[1], [[2, 3], [3, 4]]]
 
 
 def generateTree(currentTree, remainingElements):
