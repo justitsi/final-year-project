@@ -1,0 +1,50 @@
+{
+    "alg_params": {
+        "NUMBER_OF_GROUPS": 2,
+        "GROUP_SIZE": 3,
+        "TREE_PRUNE_TRESHOLD": 9999999,
+        "STEP_MAX_COST": 99999999,
+        "GROUP_BASE_SCORE": 100,
+        "LARGE_GROUP_PENALTY": 1000,
+        "AFFINITY_BONUS": 50,
+        "PRINT_RESULTS": false
+    },
+    "data": [
+        {
+            "id": 0,
+            "affinities": [
+                1
+            ]
+        },
+        {
+            "id": 1,
+            "affinities": [
+                0
+            ]
+        },
+        {
+            "id": 2,
+            "affinities": [
+                1
+            ]
+        },
+        {
+            "id": 3,
+            "affinities": [
+                2
+            ]
+        },
+        {
+            "id": 4,
+            "affinities": [
+                5
+            ]
+        },
+        {
+            "id": 5,
+            "affinities": [
+                4
+            ]
+        }
+    ]
+}
