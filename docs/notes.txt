@@ -22,4 +22,5 @@ Graphs 3 adds lookup table to save memory
 Graphs 4 adds memoization for node-node pairings 
 Graphs 5 tries to remove deepcopies from recursive function
          + fixes bug where invalid paths with high step cost but low overall cost would be kept
+Graphs 6 adds multithreading + job batch creation based on pre-proccessing path
 

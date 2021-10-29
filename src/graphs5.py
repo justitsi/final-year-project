@@ -1,7 +1,6 @@
 import time
 import json
 import copy
-import concurrent.futures
 from utils import removeElementFromArray, printTree
 start = time.time()
 
@@ -25,9 +24,6 @@ AFFINITY_BONUS = alg_params['AFFINITY_BONUS']
 # memoization variables
 NODE_PAIRING_COSTS = []
 NODE_GROUPING_IDS = []
-# multithreading params
-NUMBER_OF_LEVELS_BEFORE_MULTITHREADING = 4
-NUMBER_OF_THREADS_TO_USE = 8
 
 
 def generateTree(currentTree, remainingElements):
@@ -185,90 +181,60 @@ def preCalculateNodeToNodeCosts(nodes):
     return costs
 
 
-if __name__ == '__main__':
-    # instantiate tree and nodes to be explored
-    currentTree = {
-        "nodes": [{"groupID": 1, "id": NODES[0]['id']}],
-        "cost": 0
-    }
+# instantiate tree and nodes to be explored
+currentTree = {
+    "nodes": [{"groupID": 1, "id": NODES[0]['id']}],
+    "cost": 0
+}
+remainginNodes = []
+for node in NODES:
+    remainginNodes.append(node['id'])
 
-    remainginNodes = []
-    for node in NODES:
-        remainginNodes.append(node['id'])
+# pre-calculate node pairing costs
+NODE_PAIRING_COSTS = preCalculateNodeToNodeCosts(remainginNodes)
 
-    # pre-calculate node pairing costs
-    NODE_PAIRING_COSTS = preCalculateNodeToNodeCosts(remainginNodes)
+# run binary search alg
+remainginNodes = removeElementFromArray(remainginNodes, NODES[0]['id'])
+possible_trees = generateTree(currentTree, remainginNodes)
 
-    # remove 0th node from array of all nodes
-    remainginNodes = removeElementFromArray(remainginNodes, NODES[0]['id'])
+# print readable results
+if (alg_params['PRINT_RESULTS']):
+    for tree in possible_trees:
+        printTree(tree)
+        print('\n')
 
-    # pre-run certain paths to allow for multhithreading - this generates a batch of jobs to run on seperate threads
-    preRunNodes = []
-    for i in range(0, NUMBER_OF_LEVELS_BEFORE_MULTITHREADING):
-        preRunNodes.append(remainginNodes[i])
-        remainginNodes = removeElementFromArray(
-            remainginNodes, remainginNodes[i])
+print("Viable solutions found: " + str(len(possible_trees)))
+if len(possible_trees) > 0:
+    best_tree = possible_trees[0]
+    for tree in possible_trees:
+        if tree['cost'] <= best_tree['cost']:
+            best_tree = tree
 
-    # pre run several paths to create a batch of jobs
-    preRunTrees = generateTree(currentTree, preRunNodes)
+    printTree(best_tree)
 
-    # run jobs on seperate threads and store results in possible_paths[]
-    possible_paths = []
+# profiling/ calculate execution time of program
+end = time.time()
+print(f"Runtime of the program is {end - start}")
 
-    # code to run job batch one by one
-    # for preRunTree in preRunTrees:
-    #     solutions = generateTree(preRunTree, remainginNodes)
-    #     for solution in solutions:
-    #         possible_paths.append(solution)
 
-    # code to run job batch in parallel
-    with concurrent.futures.ProcessPoolExecutor(max_workers=NUMBER_OF_THREADS_TO_USE) as executor:
-        futures = []
-        for preRunTree in preRunTrees:
-            futures.append(executor.submit(generateTree, currentTree=preRunTree, remainingElements=remainginNodes))  # nopep8
+# Data structures reference
+# tree element def
+# {
+#     'groupID': 1,
+#     'id': 1
+# }
 
-        for future in concurrent.futures.as_completed(futures):
-            solutions = future.result()
-            for solution in solutions:
-                possible_paths.append(solution)
+# element def
+# {
+#     'groupID': 1,
+#     'properties': {
+#          'id' : 1,
+#          'affinities': [2, 3]
+#      }
+# }
 
-    # print readable results
-    if (alg_params['PRINT_RESULTS']):
-        for tree in possible_paths:
-            printTree(tree)
-            print('\n')
-
-    print("Viable solutions found: " + str(len(possible_paths)))
-    if len(possible_paths) > 0:
-        best_tree = possible_paths[0]
-        for tree in possible_paths:
-            if tree['cost'] <= best_tree['cost']:
-                best_tree = tree
-
-        printTree(best_tree)
-
-    # # profiling/ calculate execution time of program
-    end = time.time()
-    print(f"Runtime of the program is {end - start}")
-
-    # Data structures reference
-    # tree element def
-    # {
-    #     'groupID': 1,
-    #     'id': 1
-    # }
-
-    # element def
-    # {
-    #     'groupID': 1,
-    #     'properties': {
-    #          'id' : 1,
-    #          'affinities': [2, 3]
-    #      }
-    # }
-
-    # tree def
-    # {
-    #     "nodes": [elements],
-    #     "cost": ints
-    # }
+# tree def
+# {
+#     "nodes": [elements],
+#     "cost": ints
+# }

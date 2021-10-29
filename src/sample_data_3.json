@@ -1,9 +1,9 @@
 {
     "alg_params": {
-        "NUMBER_OF_GROUPS": 2,
-        "GROUP_SIZE": 10,
-        "TREE_PRUNE_TRESHOLD": 999999,
-        "STEP_MAX_COST": 1000,
+        "NUMBER_OF_GROUPS": 10,
+        "GROUP_SIZE": 2,
+        "TREE_PRUNE_TRESHOLD": 1050,
+        "STEP_MAX_COST": 250,
         "GROUP_BASE_SCORE": 100,
         "LARGE_GROUP_PENALTY": 1000,
         "AFFINITY_BONUS": 50,
@@ -13,67 +13,78 @@
         {
             "id": 0,
             "affinities": [
-                1
+                1,
+                17
             ]
         },
         {
             "id": 1,
             "affinities": [
-                0
+                0,
+                20
             ]
         },
         {
             "id": 2,
             "affinities": [
-                1
+                1,
+                20
             ]
         },
         {
             "id": 3,
             "affinities": [
-                2
+                2,
+                9
             ]
         },
         {
             "id": 4,
             "affinities": [
-                5
+                5,
+                12
             ]
         },
         {
             "id": 5,
             "affinities": [
-                4
+                4,
+                16
             ]
         },
         {
             "id": 6,
             "affinities": [
-                4
+                4,
+                5
             ]
         },
         {
             "id": 7,
             "affinities": [
-                6
+                6,
+                12
             ]
         },
         {
             "id": 8,
             "affinities": [
-                0
+                0,
+                6
             ]
         },
         {
             "id": 9,
             "affinities": [
-                5
+                5,
+                6
             ]
         },
         {
             "id": 10,
             "affinities": [
-                4
+                4,
+                3
             ]
         },
         {

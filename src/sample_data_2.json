@@ -1,7 +1,7 @@
 {
     "alg_params": {
-        "NUMBER_OF_GROUPS": 3,
-        "GROUP_SIZE": 4,
+        "NUMBER_OF_GROUPS": 4,
+        "GROUP_SIZE": 3,
         "TREE_PRUNE_TRESHOLD": 999999,
         "STEP_MAX_COST": 1000,
         "GROUP_BASE_SCORE": 100,
