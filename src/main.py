@@ -7,7 +7,7 @@ from modules.node_to_group_costing import NodeToGroupCostCalc
 start = time.time()
 
 
-with open('./samples/12_3_noPref.json', encoding='utf-8') as F:
+with open('./samples/students/12_4.json', encoding='utf-8') as F:
     json_data = json.loads(F.read())
 # read sample data and alg_params
 COSTING = json_data['costing_params']
@@ -20,6 +20,7 @@ alg_params = json_data['alg_params']
 # pruning params
 TREE_PRUNE_TRESHOLD = alg_params['TREE_PRUNE_TRESHOLD']
 STEP_MAX_COST = alg_params['STEP_MAX_COST']
+MINIMUM_ACCEPTABLE_SOLUTION = alg_params['MINIMUM_ACCEPTABLE_SOLUTION']
 
 # costing params
 GROUP_BASE_COST = alg_params['GROUP_BASE_SCORE']
@@ -66,6 +67,11 @@ def generateTree(currentTree, remainingElements):
             childTrees = generateTree(tree, remainingElementsCopy)
             for childTree in childTrees:
                 returnTrees.append(childTree)
+
+                # if returned tree contains all nodes and is bellow the minimum acceptable cost, stop execution
+                if (len(childTree['nodes']) == len(NODES)):
+                    if (childTree['cost'] <= MINIMUM_ACCEPTABLE_SOLUTION):
+                        return returnTrees
 
         return returnTrees
 

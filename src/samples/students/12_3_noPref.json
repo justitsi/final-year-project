@@ -3,6 +3,7 @@
         "TREE_PRUNE_TRESHOLD": 2000,
         "STEP_MAX_COST": 1000,
         "GROUP_BASE_SCORE": 100,
+        "MINIMUM_ACCEPTABLE_SOLUTION": 750,
         "PRINT_RESULTS": false
     },
     "costing_params": {

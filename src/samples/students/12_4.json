@@ -1,20 +1,17 @@
 {
     "alg_params": {
-        "NUMBER_OF_GROUPS": 4,
-        "GROUP_SIZE": 3,
-        "TREE_PRUNE_TRESHOLD": 999999,
-        "STEP_MAX_COST": 1000,
+        "TREE_PRUNE_TRESHOLD": 99999,
+        "STEP_MAX_COST": 9999,
         "GROUP_BASE_SCORE": 100,
-        "LARGE_GROUP_PENALTY": 1000,
-        "AFFINITY_BONUS": 50,
+        "MINIMUM_ACCEPTABLE_SOLUTION": 900,
         "PRINT_RESULTS": false
     },
     "costing_params": {
         "node-node": {
             "pre-run-costs": [
                 {
-                    "property_name": "affinities",
-                    "operation": "includes",
+                    "node_property_name": "affinities",
+                    "operation": "includes_node_id",
                     "multiplier": 50
                 }
             ]
