@@ -1,0 +1,164 @@
+{
+    "alg_params": {
+        "NUMBER_OF_GROUPS": 4,
+        "GROUP_SIZE": 3,
+        "TREE_PRUNE_TRESHOLD": 999999,
+        "STEP_MAX_COST": 1000,
+        "GROUP_BASE_SCORE": 100,
+        "LARGE_GROUP_PENALTY": 1000,
+        "AFFINITY_BONUS": 50,
+        "PRINT_RESULTS": false
+    },
+    "costing_params": {
+        "node-node": {
+            "pre-run-costs": [
+                {
+                    "property_name": "affinities",
+                    "operation": "includes",
+                    "multiplier": 50
+                }
+            ]
+        },
+        "node-group": {
+            "pre-run-costs": [
+                {
+                    "group_property_name": "target_grade",
+                    "node_property_name": "avg.Grade",
+                    "operation": "difference_absolute",
+                    "multiplier": 2.5
+                }
+            ],
+            "runtime-costs": [
+                {
+                    "group_property_name": "target_size",
+                    "operation": "count_all",
+                    "multiplier": 1000
+                }
+            ]
+        },
+        "group-group": {}
+    },
+    "groups": [
+        {
+            "id": 0,
+            "target_grade": 90,
+            "target_size": 3
+        },
+        {
+            "id": 1,
+            "target_grade": 80,
+            "target_size": 3
+        },
+        {
+            "id": 2,
+            "target_grade": 70,
+            "target_size": 3
+        },
+        {
+            "id": 3,
+            "target_grade": 60,
+            "target_size": 3
+        }
+    ],
+    "nodes": [
+        {
+            "id": 0,
+            "affinities": [
+                1,
+                5
+            ],
+            "avg.Grade": 95.6
+        },
+        {
+            "id": 1,
+            "affinities": [
+                0,
+                5
+            ],
+            "avg.Grade": 13
+        },
+        {
+            "id": 2,
+            "affinities": [
+                1,
+                7
+            ],
+            "avg.Grade": 37.7
+        },
+        {
+            "id": 3,
+            "affinities": [
+                2,
+                4
+            ],
+            "avg.Grade": 98.9
+        },
+        {
+            "id": 4,
+            "affinities": [
+                5,
+                6
+            ],
+            "avg.Grade": 50.6
+        },
+        {
+            "id": 5,
+            "affinities": [
+                4,
+                1
+            ],
+            "avg.Grade": 23.5
+        },
+        {
+            "id": 6,
+            "affinities": [
+                4,
+                0
+            ],
+            "avg.Grade": 98.0
+        },
+        {
+            "id": 7,
+            "affinities": [
+                6,
+                0,
+                3
+            ],
+            "avg.Grade": 87.8
+        },
+        {
+            "id": 8,
+            "affinities": [
+                0,
+                8,
+                3,
+                2,
+                1
+            ],
+            "avg.Grade": 43.3
+        },
+        {
+            "id": 9,
+            "affinities": [
+                5,
+                0
+            ],
+            "avg.Grade": 100
+        },
+        {
+            "id": 10,
+            "affinities": [],
+            "avg.Grade": 79.45
+        },
+        {
+            "id": 11,
+            "affinities": [
+                9,
+                4,
+                7,
+                8
+            ],
+            "avg.Grade": 43.6
+        }
+    ]
+}

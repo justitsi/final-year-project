@@ -7,26 +7,26 @@ from modules.node_to_group_costing import NodeToGroupCostCalc
 start = time.time()
 
 
-with open('./samples/2.json', encoding='utf-8') as F:
+with open('./samples/12_3_noPref.json', encoding='utf-8') as F:
     json_data = json.loads(F.read())
 # read sample data and alg_params
-NODES = json_data['data']
+COSTING = json_data['costing_params']
+NODES = json_data['nodes']
+GROUPS = json_data['groups']
+NUMBER_OF_GROUPS = len(GROUPS)
+
+# algorithm params
 alg_params = json_data['alg_params']
-
-
-NUMBER_OF_GROUPS = alg_params['NUMBER_OF_GROUPS']
-GROUP_SIZE = alg_params['GROUP_SIZE']
 # pruning params
 TREE_PRUNE_TRESHOLD = alg_params['TREE_PRUNE_TRESHOLD']
 STEP_MAX_COST = alg_params['STEP_MAX_COST']
+
 # costing params
 GROUP_BASE_COST = alg_params['GROUP_BASE_SCORE']
-LARGE_GROUP_PENALTY = alg_params['LARGE_GROUP_PENALTY']
-AFFINITY_BONUS = alg_params['AFFINITY_BONUS']
 
 # initialize costing modules
-NODE_NODE_COST_CALC = NodeToNodeCostCalc(NODES, AFFINITY_BONUS)
-NODE_GROUP_COST_CALC = NodeToGroupCostCalc(GROUP_SIZE, LARGE_GROUP_PENALTY)
+NODE_NODE_COST_CALC = NodeToNodeCostCalc(NODES, COSTING['node-node'])  # nopep8
+NODE_GROUP_COST_CALC = NodeToGroupCostCalc(NODES, GROUPS, COSTING['node-group'])  # nopep8
 
 
 # main recursive path finding function

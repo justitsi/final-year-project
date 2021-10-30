@@ -1,0 +1,116 @@
+{
+    "alg_params": {
+        "TREE_PRUNE_TRESHOLD": 2000,
+        "STEP_MAX_COST": 1000,
+        "GROUP_BASE_SCORE": 100,
+        "PRINT_RESULTS": false
+    },
+    "costing_params": {
+        "node-node": {
+            "pre-run-costs": [
+                {
+                    "node_property_name": "affinities",
+                    "operation": "includes_node_id",
+                    "multiplier": 50
+                }
+            ]
+        },
+        "node-group": {
+            "pre-run-costs": [
+                {
+                    "group_property_name": "target_grade",
+                    "node_property_name": "avg.Grade",
+                    "operation": "difference_absolute",
+                    "multiplier": 2.5
+                }
+            ],
+            "runtime-costs": [
+                {
+                    "group_property_name": "target_size",
+                    "operation": "count_all",
+                    "multiplier": 1000
+                }
+            ]
+        },
+        "group-group": {}
+    },
+    "groups": [
+        {
+            "id": 0,
+            "target_grade": 90,
+            "target_size": 4
+        },
+        {
+            "id": 1,
+            "target_grade": 80,
+            "target_size": 4
+        },
+        {
+            "id": 2,
+            "target_grade": 70,
+            "target_size": 4
+        }
+    ],
+    "nodes": [
+        {
+            "id": 0,
+            "affinities": [],
+            "avg.Grade": 100
+        },
+        {
+            "id": 1,
+            "affinities": [],
+            "avg.Grade": 80
+        },
+        {
+            "id": 2,
+            "affinities": [],
+            "avg.Grade": 90
+        },
+        {
+            "id": 3,
+            "affinities": [],
+            "avg.Grade": 70
+        },
+        {
+            "id": 4,
+            "affinities": [],
+            "avg.Grade": 60
+        },
+        {
+            "id": 5,
+            "affinities": [],
+            "avg.Grade": 90
+        },
+        {
+            "id": 6,
+            "affinities": [],
+            "avg.Grade": 90
+        },
+        {
+            "id": 7,
+            "affinities": [],
+            "avg.Grade": 100
+        },
+        {
+            "id": 8,
+            "affinities": [],
+            "avg.Grade": 30
+        },
+        {
+            "id": 9,
+            "affinities": [],
+            "avg.Grade": 100
+        },
+        {
+            "id": 10,
+            "affinities": [],
+            "avg.Grade": 60
+        },
+        {
+            "id": 11,
+            "affinities": [],
+            "avg.Grade": 50
+        }
+    ]
+}

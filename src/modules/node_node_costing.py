@@ -1,7 +1,7 @@
 class NodeToNodeCostCalc:
-    def __init__(self, NODES, AFFINITY_BONUS):
+    def __init__(self, NODES, COSTING_PARAMS):
         self.NODES = NODES
-        self.AFFINITY_BONUS = AFFINITY_BONUS
+        self.COSTING_PARAMS = COSTING_PARAMS["pre-run-costs"]
 
         nodeIDs = []
         for node in NODES:
@@ -25,28 +25,34 @@ class NodeToNodeCostCalc:
 
     # both arguments contain full node data dictionaries
     def calculateNodeToNodeCost(self, node1, node2):
+        costParams = self.COSTING_PARAMS
         cost = 0
 
-        if (node1['affinities']):
-            for affinity in node1['affinities']:
-                if (affinity == node2['id']):
-                    cost -= self.AFFINITY_BONUS
+        for costParam in costParams:
+            node1Property = node1[costParam['node_property_name']]
+            node2Property = node2[costParam['node_property_name']]
 
-        if (node2['affinities']):
-            for affinity in node2['affinities']:
-                if (affinity == node1['id']):
-                    cost -= self.AFFINITY_BONUS
+            if (costParam['operation'] == 'includes_node_id'):
+                if (node1Property):
+                    for item in node1Property:
+                        if (item == node2['id']):
+                            cost -= costParam['multiplier']
+
+                if (node2Property):
+                    for item in node2Property:
+                        if (item == node1['id']):
+                            cost -= costParam['multiplier']
 
         return cost
 
-    # returns full node properties as dictionary
+    # lookup full node properties by id
     def getNodeProperties(self, nodeID):
         for node in self.NODES:
             if nodeID == node['id']:
                 return node
-        return {}
+        return {'id': -1}
 
-    # precalculate costs for each node-to-node pairings
+    # precalculate costs for each node-to-node pairing
     # assumes that nodes are sorted by id
     def preCalculateNodeToNodeCosts(self, nodes):
         costs = []
