@@ -142,16 +142,22 @@ if (alg_params['PRINT_RESULTS']):
 
 print("Viable solutions found: " + str(len(possible_trees)))
 if len(possible_trees) > 0:
+    tree_cost_sum = 0
     best_tree = possible_trees[0]
+
     for tree in possible_trees:
+        tree_cost_sum += tree['cost']
         if tree['cost'] <= best_tree['cost']:
             best_tree = tree
 
     printTree(best_tree)
 
+    print()
+    print(f"Avg. cost: {str(tree_cost_sum/len(possible_trees))}")
+
 # profiling/ calculate execution time of program
 end = time.time()
-print(f"Runtime of the program is {end - start}")
+print(f"Runtime:   {end - start}")
 
 
 # Data structures reference
