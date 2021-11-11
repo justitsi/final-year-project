@@ -7,7 +7,7 @@ from modules.node_to_group_costing import NodeToGroupCostCalc
 start = time.time()
 
 
-with open('./samples/students/12_4.json', encoding='utf-8') as F:
+with open('./samples/students/12_3_noPref.json', encoding='utf-8') as F:
     json_data = json.loads(F.read())
 # read sample data and alg_params
 COSTING = json_data['costing_params']
@@ -21,9 +21,6 @@ alg_params = json_data['alg_params']
 TREE_PRUNE_TRESHOLD = alg_params['TREE_PRUNE_TRESHOLD']
 STEP_MAX_COST = alg_params['STEP_MAX_COST']
 MINIMUM_ACCEPTABLE_SOLUTION = alg_params['MINIMUM_ACCEPTABLE_SOLUTION']
-
-# costing params
-GROUP_BASE_COST = alg_params['GROUP_BASE_SCORE']
 
 # initialize costing modules
 NODE_NODE_COST_CALC = NodeToNodeCostCalc(NODES, COSTING['node-node'])  # nopep8
@@ -104,7 +101,7 @@ def generateTree(currentTree, remainingElements):
 
 # returns the cost of adding an element to a specific path
 def getCost(currentTree, el):
-    cost = GROUP_BASE_COST
+    cost = 0
 
     # get nodeIDs for nodes in group
     nodesInGroup = []

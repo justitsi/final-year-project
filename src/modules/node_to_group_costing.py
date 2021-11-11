@@ -33,11 +33,14 @@ class NodeToGroupCostCalc:
         group_info_full = self.getGroupProperties(groupID)
 
         for param in self.RUNTIME_COSTING_PARAMS:
-            if (param['operation'] == 'count_all'):
+            if (param['operation'] == 'count_all_over'):
                 groupSize = len(groupNodesIDs) + 1
+                if (groupSize >= group_info_full[param['group_property_name']]):
+                    cost += param['multiplier'] * ((groupSize) - group_info_full[param['group_property_name']])  # nopep8
 
-                if (groupSize >= group_info_full['target_size']):
-                    cost += param['multiplier'] * ((groupSize) - group_info_full['target_size'])  # nopep8
+            if (param['operation'] == 'add_once'):
+                if (len(groupNodesIDs) == 0):
+                    cost += param['multiplier'] * group_info_full[param['group_property_name']]  # nopep8
 
         return cost
 
@@ -72,7 +75,17 @@ class NodeToGroupCostCalc:
             nodeProperty = node[costParam['node_property_name']]
 
             if (costParam['operation'] == 'difference_absolute'):
-                cost = (groupProperty - nodeProperty) * costParam['multiplier']
+                cost = abs(groupProperty - nodeProperty) * costParam['multiplier']  # nopep8
+
+            if (costParam['operation'] == 'difference_over'):
+                difference = groupProperty - nodeProperty
+                if (difference < 0):
+                    cost = (-difference) * costParam['multiplier']
+
+            if (costParam['operation'] == 'difference_under'):
+                difference = groupProperty - nodeProperty
+                if (difference > 0):
+                    cost = difference * costParam['multiplier']
 
         return cost
 

@@ -32,6 +32,7 @@ class NodeToNodeCostCalc:
             node1Property = node1[costParam['node_property_name']]
             node2Property = node2[costParam['node_property_name']]
 
+            # handle includes_node_id operation
             if (costParam['operation'] == 'includes_node_id'):
                 if (node1Property):
                     for item in node1Property:
@@ -42,6 +43,23 @@ class NodeToNodeCostCalc:
                     for item in node2Property:
                         if (item == node1['id']):
                             cost -= costParam['multiplier']
+
+            # handle similiarity_float operation
+            if (costParam['operation'] == 'similiarity_float'):
+                if (node1Property and node2Property):
+                    difference = 1
+                    if (node1Property > node2Property):
+                        difference = node2Property/node1Property
+                    else:
+                        difference = node1Property/node2Property
+
+                    cost += costParam['multiplier'] * difference
+
+            # handle is_equal operation
+            if (costParam['operation'] == 'is_equal'):
+                if (node1Property and node2Property):
+                    if (node1Property == node2Property):
+                        cost += costParam['multiplier']
 
         return cost
 

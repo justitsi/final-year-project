@@ -2,8 +2,7 @@
     "alg_params": {
         "TREE_PRUNE_TRESHOLD": 900,
         "STEP_MAX_COST": 250,
-        "GROUP_BASE_SCORE": 100,
-        "MINIMUM_ACCEPTABLE_SOLUTION": 900,
+        "MINIMUM_ACCEPTABLE_SOLUTION": -9999999999999999,
         "PRINT_RESULTS": false
     },
     "costing_params": {
@@ -28,8 +27,13 @@
             "runtime-costs": [
                 {
                     "group_property_name": "target_size",
-                    "operation": "count_all",
+                    "operation": "count_all_over",
                     "multiplier": 1000
+                },
+                {
+                    "operation": "add_once",
+                    "group_property_name": "base_score",
+                    "multiplier": 1
                 }
             ]
         },
@@ -38,21 +42,25 @@
     "groups": [
         {
             "id": 0,
+            "base_score": 100,
             "target_grade": 90,
             "target_size": 3
         },
         {
             "id": 1,
+            "base_score": 100,
             "target_grade": 80,
             "target_size": 3
         },
         {
             "id": 2,
+            "base_score": 100,
             "target_grade": 70,
             "target_size": 3
         },
         {
             "id": 3,
+            "base_score": 100,
             "target_grade": 60,
             "target_size": 3
         }

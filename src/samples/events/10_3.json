@@ -1,0 +1,125 @@
+{
+    "alg_params": {
+        "TREE_PRUNE_TRESHOLD": 100000,
+        "STEP_MAX_COST": 50000,
+        "MINIMUM_ACCEPTABLE_SOLUTION": -1,
+        "PRINT_RESULTS": false
+    },
+    "costing_params": {
+        "node-node": {
+            "pre-run-costs": [
+                {
+                    "node_property_name": "age_group",
+                    "operation": "is_equal",
+                    "multiplier": 10000
+                }
+            ]
+        },
+        "node-group": {
+            "pre-run-costs": [
+                {
+                    "group_property_name": "capacity_attendees",
+                    "node_property_name": "attendees",
+                    "operation": "difference_over",
+                    "multiplier": 250
+                },
+                {
+                    "operation": "difference_over",
+                    "group_property_name": "capacity_spectators",
+                    "node_property_name": "spectators",
+                    "multiplier": 50
+                }
+            ],
+            "runtime-costs": [
+                {
+                    "operation": "add_once",
+                    "group_property_name": "base_score",
+                    "multiplier": 1
+                }
+            ]
+        },
+        "group-group": {}
+    },
+    "groups": [
+        {
+            "id": 0,
+            "base_score": 3500,
+            "capacity_attendees": 100,
+            "capacity_spectators": 250
+        },
+        {
+            "id": 1,
+            "base_score": 10000,
+            "capacity_attendees": 500,
+            "capacity_spectators": 5000
+        },
+        {
+            "id": 2,
+            "base_score": 1000,
+            "capacity_attendees": 30,
+            "capacity_spectators": 150
+        }
+    ],
+    "nodes": [
+        {
+            "id": 0,
+            "age_group": "8-12",
+            "attendees": 200,
+            "spectators": 400
+        },
+        {
+            "id": 1,
+            "age_group": "8-12",
+            "attendees": 100,
+            "spectators": 200
+        },
+        {
+            "id": 2,
+            "age_group": "8-12",
+            "attendees": 50,
+            "spectators": 100
+        },
+        {
+            "id": 3,
+            "age_group": "8-12",
+            "attendees": 15,
+            "spectators": 250
+        },
+        {
+            "id": 4,
+            "age_group": "8-12",
+            "attendees": 8,
+            "spectators": 1000
+        },
+        {
+            "id": 5,
+            "age_group": "12-16",
+            "attendees": 350,
+            "spectators": 700
+        },
+        {
+            "id": 6,
+            "age_group": "12-16",
+            "attendees": 175,
+            "spectators": 350
+        },
+        {
+            "id": 7,
+            "age_group": "12-16",
+            "attendees": 85,
+            "spectators": 200
+        },
+        {
+            "id": 8,
+            "age_group": "12-16",
+            "attendees": 40,
+            "spectators": 1000
+        },
+        {
+            "id": 9,
+            "age_group": "12-16",
+            "attendees": 12,
+            "spectators": 5000
+        }
+    ]
+}
