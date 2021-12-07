@@ -26,7 +26,7 @@ class jobRunner:
         self.NODE_GROUP_COST_CALC = NodeToGroupCostCalc(self.NODES, self.GROUPS, self.COSTING['node-group'])  # nopep8
 
     # main recursive path finding function
-    def generateTree(self, currentTree, remainingElements):
+    def pairNodes(self, currentTree, remainingElements):
         # take out id that will be added to the array
         idToAdd = remainingElements[0]
         remainingElementsCopy = removeElementFromArray(remainingElements, remainingElements[0])  # nopep8
@@ -59,7 +59,7 @@ class jobRunner:
 
             # re-run the function for valid candidate trees
             for tree in possibleTrees:
-                childTrees = self.generateTree(tree, remainingElementsCopy)
+                childTrees = self.pairNodes(tree, remainingElementsCopy)
                 for childTree in childTrees:
                     returnTrees.append(childTree)
 
@@ -128,14 +128,90 @@ class jobRunner:
 
         # run binary search alg
         remainginNodes = removeElementFromArray(remainginNodes, self.NODES[0]['id'])  # nopep8
-        possible_trees = self.generateTree(currentTree, remainginNodes)
+        possible_trees = self.pairNodes(currentTree, remainginNodes)
 
         return possible_trees
+
+    def getNodesByGroups(self, path):
+        groups = []
+        for i in range(self.NUMBER_OF_GROUPS):
+            groups.append([])
+
+        for item in path['nodes']:
+            groups[item['groupID']].append(item['id'])
+
+        return groups
+
+    def orderGroups(self, groupsOrdered, groupsRemaining):
+        # groupsOrdered is empty, populate it!
+        if (len(groupsOrdered['groups']) == 0):
+            possible_results = []
+            for i in range(0, len(groupsRemaining)):
+                # create new instances of funciton objects
+                groupsRemainingCopy = groupsRemaining.copy()
+
+                groupToEvaluate = groupsRemainingCopy[i]
+                del groupsRemainingCopy[i]
+
+                groupsOrderedCopy = copy.deepcopy(groupsOrdered)
+                groupsOrderedCopy['groups'] = [groupToEvaluate]
+
+                # get all possible solutions
+                results = self.orderGroups(groupsOrderedCopy, groupsRemainingCopy)  # nopep8
+
+                for result in results:
+                    possible_results.append(result)
+
+            return possible_results
+        else:
+            # init last group in groupsOrdered
+            lastInList = groupsOrdered['groups'][len(groupsOrdered['groups'])-1]  # nopep8
+
+            # if there's groups to be ordered call orderGroups function
+            if (len(groupsRemaining) > 1):
+
+                possible_results = []
+                for i in range(0, len(groupsRemaining)):
+                    # get group to evaluate
+                    groupToEvaluate = groupsRemaining[i]
+
+                    # create a copy of the remaining groups array to pass to the recursive function
+                    groupsRemainingCopy = groupsRemaining.copy()
+                    del groupsRemainingCopy[i]
+
+                    # create a copy of the object that holds the current order data
+                    groupsOrderedCopy = copy.deepcopy(groupsOrdered)
+                    # add the cost of adding the current group to this ordering to the order data object
+                    groupsOrderedCopy['cost'] += self.groupToGroupCost(lastInList, groupToEvaluate)  # nopep8
+                    groupsOrderedCopy['groups'].append(groupToEvaluate)  # nopep8
+
+                    # call recusrsive function to get cost at bottom
+                    results = self.orderGroups(groupsOrderedCopy, groupsRemainingCopy)  # nopep8
+
+                    for result in results:
+                        possible_results.append(result)
+
+                return possible_results
+            # if array has only one item then it's a leaf, add it to the end and return the full ordering
+            else:
+                # get the first unordered group from the list
+                groupToEvaluate = groupsRemaining[0]
+                del groupsRemaining[0]
+
+                # add element to groupsOrdered and calculate new cost
+                groupsOrdered['cost'] += self.groupToGroupCost(lastInList, groupToEvaluate)  # nopep8
+                groupsOrdered['groups'].append(groupToEvaluate)  # nopep8
+
+                return [groupsOrdered]
+
+    def groupToGroupCost(self, group1, group2):
+        # add 100 cost for each difference in len
+        return (len(group1)-len(group2)) * 100
 
 
 def main():
     start = time.time()
-    with open('./samples/students/12_4.json', encoding='utf-8') as F:
+    with open('./samples/students/12_4_1.json', encoding='utf-8') as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)
@@ -159,6 +235,20 @@ def main():
                 best_tree = tree
 
         printTree(best_tree)
+        print()
+
+        best_groups = runner.getNodesByGroups(best_tree)
+        print(best_groups)
+
+        order_object = {
+            'groups': [],
+            'cost': 0
+        }
+
+        possible_orders = runner.orderGroups(order_object, best_groups)
+
+        for order in possible_orders:
+            print(order)
 
         print()
         print(f"Avg. cost: {str(tree_cost_sum/len(possible_trees))}")
