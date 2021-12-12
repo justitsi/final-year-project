@@ -49,9 +49,9 @@ class NodeToNodeCostCalc:
                 if (node1Property and node2Property):
                     difference = 1
                     if (node1Property > node2Property):
-                        difference = node2Property/node1Property
+                        difference = node2Property / node1Property
                     else:
-                        difference = node1Property/node2Property
+                        difference = node1Property / node2Property
 
                     cost += costParam['multiplier'] * difference
 
