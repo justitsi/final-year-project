@@ -3,7 +3,7 @@ class GroupToGroupCostCalc:
         self.NUMBER_OF_GROUPS = len(GROUPS)
         self.GROUPS = GROUPS
         self.NODES = NODES
-        self.COSTING_PARAMS = COSTING_PARAMS
+        self.POST_RUN_COSTING_PARAMS = COSTING_PARAMS['post-run-costs']
 
     def getNodesByGroups(self, path):
         groups = []
@@ -15,6 +15,9 @@ class GroupToGroupCostCalc:
 
         return groups
 
-    def calculateGroupToGroupCost(self, group1, group2):
-        # add 100 cost for each difference in len
-        return (len(group1) - len(group2)) * 100
+    def calculatePostRunCost(self, group1, group2):
+        cost = 0
+        for operation in self.POST_RUN_COSTING_PARAMS:
+            if operation['operation'] == 'difference_count_nodes':
+                cost += (len(group1) - len(group2)) * operation['multiplier']
+        return cost

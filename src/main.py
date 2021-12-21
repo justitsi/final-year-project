@@ -174,9 +174,9 @@ class jobRunner:
 
                 return [groupsOrdered]
 
-    # returns the cost of putting one group2 after group1
+    # returns the cost of putting group2 after group1
     def groupToGroupCost(self, group1, group2):
-        return self.GROUP_GROUP_COST_CALC.calculateGroupToGroupCost(group1, group2)
+        return self.GROUP_GROUP_COST_CALC.calculatePostRunCost(group1, group2)
 
     # run node pairing job
     def getBestPairings(self):
@@ -209,7 +209,7 @@ class jobRunner:
 
 def main():
     start = time.time()
-    with open("./samples/students/12_4_1.json", encoding="utf-8") as F:
+    with open("./samples/marketing/20_2.json", encoding="utf-8") as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)

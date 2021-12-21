@@ -1,0 +1,148 @@
+{
+    "alg_params": {
+        "TREE_PRUNE_TRESHOLD": 1100,
+        "STEP_MAX_COST": 300,
+        "MINIMUM_ACCEPTABLE_SOLUTION": -1,
+        "PRINT_RESULTS": false
+    },
+    "costing_params": {
+        "node-node": {
+            "pre-run-costs": []
+        },
+        "node-group": {
+            "pre-run-costs": [
+                {
+                    "group_property_name": "target_age",
+                    "node_property_name": "age",
+                    "operation": "difference_absolute",
+                    "multiplier": 2.5
+                }
+            ],
+            "runtime-costs": [
+                {
+                    "group_property_name": "max_size",
+                    "operation": "count_all_over",
+                    "multiplier": 100
+                }
+            ]
+        },
+        "group-group": {
+            "post-run-costs": [
+                {
+                    "operation": "difference_count_nodes",
+                    "multiplier": 100
+                }
+            ]
+        }
+    },
+    "groups": [
+        {
+            "id": 0,
+            "target_age": 15,
+            "max_size": 13
+        },
+        {
+            "id": 1,
+            "target_age": 25,
+            "max_size": 7
+        }
+    ],
+    "nodes": [
+        {
+            "id": 0,
+            "age": 12
+        },
+        {
+            "id": 1,
+            "age": 45
+        },
+        {
+            "id": 2,
+            "age": 14
+        },
+        {
+            "id": 3,
+            "age": 23
+        },
+        {
+            "id": 4,
+            "age": 32
+        },
+        {
+            "id": 5,
+            "age": 13
+        },
+        {
+            "id": 6,
+            "age": 21
+        },
+        {
+            "id": 7,
+            "age": 33
+        },
+        {
+            "id": 8,
+            "age": 10
+        },
+        {
+            "id": 9,
+            "age": 7
+        },
+        {
+            "id": 10,
+            "age": 53
+        },
+        {
+            "id": 11,
+            "age": 32
+        },
+        {
+            "id": 12,
+            "age": 23
+        },
+        {
+            "id": 13,
+            "age": 39
+        },
+        {
+            "id": 14,
+            "age": 27
+        },
+        {
+            "id": 15,
+            "age": 17
+        },
+        {
+            "id": 16,
+            "age": 18
+        },
+        {
+            "id": 17,
+            "age": 21
+        },
+        {
+            "id": 18,
+            "age": 15
+        },
+        {
+            "id": 19,
+            "age": 18
+        },
+        {
+            "id": 20,
+            "age": 15
+        },
+        {
+            "id": 21,
+            "age": 23
+        },
+        {
+            "id": 22,
+            "age": 54
+        },
+        {
+            "id": 23,
+            "age": 12
+        }
+    ]
+}

@@ -37,7 +37,14 @@
                 }
             ]
         },
-        "group-group": {}
+        "group-group": {
+            "post-run-costs": [
+                {
+                    "operation": "difference_count_nodes",
+                    "multiplier": 100
+                }
+            ]
+        }
     },
     "groups": [
         {
