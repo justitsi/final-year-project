@@ -4056,5 +4056,30 @@
                 0
             ]
         }
-    ]
+    ],
+    "alg_params": {
+        "TREE_PRUNE_TRESHOLD": 999999,
+        "STEP_MAX_COST": 900,
+        "MINIMUM_ACCEPTABLE_SOLUTION": -1,
+        "PRINT_RESULTS": false
+    },
+    "costing_params": {
+        "node-node": {
+            "pre-run-costs": []
+        },
+        "node-group": {
+            "pre-run-costs": [
+                {
+                    "group_property_name": "Timeslots",
+                    "node_property_name": "Timeslots",
+                    "operation": "binary_group_array_excludes",
+                    "multiplier": 1000
+                }
+            ],
+            "runtime-costs": []
+        },
+        "group-group": {
+            "post-run-costs": []
+        }
+    }
 }

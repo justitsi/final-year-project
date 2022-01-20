@@ -3,6 +3,7 @@ import os
 import json
 # set file locations
 excel_location = os.path.join('Mentoring.xlsx')
+args_location = os.path.join('job_args.json')
 output_location = os.path.join('job.json')
 # Read excel file
 students = pd.read_excel(excel_location, sheet_name="Mentors").to_dict(orient='records')  # nopep8
@@ -79,5 +80,11 @@ with open(output_location, 'w') as f:
         "nodes": students,
         "groups": workshops
     }
+
+    with open(args_location) as args_file:
+        job_args = json.load(args_file)
+
+    job['alg_params'] = job_args['alg_params']
+    job['costing_params'] = job_args['costing_params']
 
     json.dump(job, f)

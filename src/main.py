@@ -209,7 +209,10 @@ class jobRunner:
 
 def main():
     start = time.time()
-    with open("./samples/marketing/20_2.json", encoding="utf-8") as F:
+    marketing_loc = './samples/marketing/20_2.json'
+    mentoring_loc = './samples/mentoring/job.json'
+
+    with open(mentoring_loc, encoding="utf-8") as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)

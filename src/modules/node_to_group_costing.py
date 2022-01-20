@@ -87,6 +87,17 @@ class NodeToGroupCostCalc:
                 if (difference > 0):
                     cost = difference * costParam['multiplier']
 
+            if (costParam['operation'] == 'binary_group_array_excludes'):
+                includes = False
+                for i in range(0, len(groupProperty)):
+                    if groupProperty[i] == 1:
+                        if nodeProperty[i] == groupProperty[i]:
+                            includes = True
+                            break
+
+                if (not includes):
+                    cost = costParam['multiplier']
+
         return cost
 
     # lookup full group properties by id
