@@ -1,0 +1,26 @@
+{
+    "alg_params": {
+        "TREE_PRUNE_TRESHOLD": 999999999999,
+        "STEP_MAX_COST": 1100,
+        "MINIMUM_ACCEPTABLE_SOLUTION": -1,
+        "PRINT_RESULTS": false
+    },
+    "costing_params": {
+        "node-node": {
+            "pre-run-costs": [
+                {
+                    "node_property_name": "Proposals",
+                    "operation": "includes_node_property",
+                    "multiplier": 50
+                }
+            ]
+        },
+        "node-group": {
+            "pre-run-costs": [],
+            "runtime-costs": []
+        },
+        "group-group": {
+            "post-run-costs": []
+        }
+    }
+}
