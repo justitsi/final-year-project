@@ -1,5 +1,5 @@
-num_nodes = 200
-num_groups = 40
+num_nodes = 100
+num_groups = 20
 
 num_ops = 0
 

@@ -4,7 +4,7 @@ import os
 import json
 
 # define Workshop names and target size in order to generate label data dynamically
-workshops = ['A', 'B', 'C']
+workshops = ['A']
 WS_GROUP_SIZE = 5
 WS_MIN_SIZE = 3
 # define how many proposals are included in each student row
