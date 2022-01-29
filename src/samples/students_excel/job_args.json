@@ -1,7 +1,7 @@
 {
     "alg_params": {
-        "TREE_PRUNE_TRESHOLD": 999999999999,
-        "STEP_MAX_COST": 1100,
+        "TREE_PRUNE_TRESHOLD": 1000,
+        "STEP_MAX_COST": 0,
         "MINIMUM_ACCEPTABLE_SOLUTION": -1,
         "PRINT_RESULTS": false
     },
@@ -11,7 +11,17 @@
                 {
                     "node_property_name": "Proposals",
                     "operation": "includes_node_property",
-                    "multiplier": 50
+                    "multiplier": -12.5
+                },
+                {
+                    "node_property_name": "Engagement",
+                    "operation": "difference_absolute",
+                    "multiplier": 100
+                },
+                {
+                    "node_property_name": "Response",
+                    "operation": "difference_absolute",
+                    "multiplier": 2
                 }
             ]
         },

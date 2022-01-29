@@ -37,12 +37,12 @@ class NodeToNodeCostCalc:
                 if (node1Property):
                     for item in node1Property:
                         if (item == node2['id']):
-                            cost -= costParam['multiplier']
+                            cost += costParam['multiplier']
 
                 if (node2Property):
                     for item in node2Property:
                         if (item == node1['id']):
-                            cost -= costParam['multiplier']
+                            cost += costParam['multiplier']
 
             # handle similiarity_float operation
             if (costParam['operation'] == 'similiarity_float'):
@@ -54,6 +54,10 @@ class NodeToNodeCostCalc:
                         difference = node1Property / node2Property
 
                     cost += costParam['multiplier'] * difference
+
+            # handle difference_absolute operation
+            if (costParam['operation'] == 'difference_absolute'):
+                cost = abs(node1Property - node2Property) * costParam['multiplier']  # nopep8
 
             # handle is_equal operation
             if (costParam['operation'] == 'is_equal'):

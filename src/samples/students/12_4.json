@@ -11,7 +11,7 @@
                 {
                     "node_property_name": "affinities",
                     "operation": "includes_node_id",
-                    "multiplier": 50
+                    "multiplier": -50
                 }
             ]
         },

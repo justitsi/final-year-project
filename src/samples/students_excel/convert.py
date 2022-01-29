@@ -36,7 +36,7 @@ def cleanStudentData(student, numOfProposals):
 
     # convert NaN 'Response's to None
     if pd.isna(student['Response']):
-        student['Response'] = None
+        student['Response'] = 100
 
     return student
 

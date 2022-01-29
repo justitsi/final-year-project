@@ -211,8 +211,9 @@ def main():
     start = time.time()
     marketing_loc = './samples/marketing/20_2.json'
     mentoring_loc = './samples/mentoring/job.json'
+    real_students_loc = './samples/students_excel/job.json'
 
-    with open(mentoring_loc, encoding="utf-8") as F:
+    with open(real_students_loc, encoding="utf-8") as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)
