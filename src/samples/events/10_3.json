@@ -3,7 +3,8 @@
         "TREE_PRUNE_TRESHOLD": 100000,
         "STEP_MAX_COST": 50000,
         "MINIMUM_ACCEPTABLE_SOLUTION": -1,
-        "PRINT_RESULTS": false
+        "PRINT_RESULTS": false,
+        "MAX_PATHS_PER_NODE": 2
     },
     "costing_params": {
         "node-node": {

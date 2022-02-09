@@ -21,6 +21,7 @@ class jobRunner:
         self.TREE_PRUNE_TRESHOLD = alg_params["TREE_PRUNE_TRESHOLD"]
         self.STEP_MAX_COST = alg_params["STEP_MAX_COST"]
         self.MINIMUM_ACCEPTABLE_SOLUTION = alg_params["MINIMUM_ACCEPTABLE_SOLUTION"]
+        self.MAXIMUM_BRANCHES_PER_NODE = alg_params["MAX_PATHS_PER_NODE"]
 
         # initialize costing modules
         self.NODE_NODE_COST_CALC = NodeToNodeCostCalc(self.NODES, self.COSTING["node-node"])  # nopep8
@@ -37,24 +38,35 @@ class jobRunner:
         returnTrees = []
 
         if len(remainingElementsCopy) > 0:
+            best_prospects = []
+
             for i in range(0, self.NUMBER_OF_GROUPS):
                 # instanciate element to add
-                elementToAddCopy = {"groupID": i, "id": idToAdd}
+                elementToAdd = {"groupID": i, "id": idToAdd}
 
                 # get cost to add
-                costToAdd = self.getNodeCost(currentTree, elementToAddCopy)
+                costToAdd = self.getNodeCost(currentTree, elementToAdd)
                 totalTreeCost = currentTree["cost"] + costToAdd
 
                 # add info to possible trees if tested tree is OK
                 if costToAdd < self.STEP_MAX_COST:
                     if totalTreeCost < self.TREE_PRUNE_TRESHOLD:
-                        # instanciate copy of currently tested tree
-                        currentTreeCopy = copy.deepcopy(currentTree)
+                        # add prospect pairing to prospect array
+                        best_prospects.append([totalTreeCost, elementToAdd])
 
-                        currentTreeCopy["nodes"].append(elementToAddCopy)
-                        currentTreeCopy["cost"] = totalTreeCost
+                # sort prospect array and remove all undesirable pairings
+                best_prospects.sort(key=lambda item: item[0])
+                best_prospects = best_prospects[:self.MAXIMUM_BRANCHES_PER_NODE]  # nopep8
 
-                        possibleTrees.append(currentTreeCopy)
+            # only consider the best branch prospects for further investigation
+            for prospect in best_prospects:
+                # instanciate copy of currently tested tree
+                currentTreeCopy = copy.deepcopy(currentTree)
+
+                currentTreeCopy["cost"] = prospect[0]
+                currentTreeCopy["nodes"].append(prospect[1])
+
+                possibleTrees.append(currentTreeCopy)
 
             # re-run the function for valid candidate trees
             for tree in possibleTrees:
@@ -211,10 +223,11 @@ def main():
     start = time.time()
     output_location = './tmp_output.json'
     marketing_loc = './samples/marketing/20_2.json'
+    students_loc = './samples/students/12_4.json'
     mentoring_loc = './samples/mentoring/job.json'
     real_students_loc = './samples/students_excel/job.json'
 
-    with open(real_students_loc, encoding="utf-8") as F:
+    with open(students_loc, encoding="utf-8") as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)
