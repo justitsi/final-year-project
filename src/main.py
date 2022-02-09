@@ -209,6 +209,7 @@ class jobRunner:
 
 def main():
     start = time.time()
+    output_location = './tmp_output.json'
     marketing_loc = './samples/marketing/20_2.json'
     mentoring_loc = './samples/mentoring/job.json'
     real_students_loc = './samples/students_excel/job.json'
@@ -238,11 +239,17 @@ def main():
         printTree(best_tree)
         print()
 
-        best_order = runner.getOptimalGroupOrder(best_tree)
+        # best_order = runner.getOptimalGroupOrder(best_tree)
 
-        print(best_order['groups'])
-        print()
+        # print(best_order['groups'])
+        # print()
+        print(f"Number of solutions: {len(possible_trees)}")
         print(f"Avg. cost: {str(tree_cost_sum/len(possible_trees))}")
+
+        # save results as json file
+        # delete job file and generate new one
+        with open(output_location, 'w') as f:
+            json.dump(best_tree, f)
 
     # profiling/ calculate execution time of program
     end = time.time()

@@ -38,6 +38,11 @@ class NodeToGroupCostCalc:
                 if (groupSize >= group_info_full[param['group_property_name']]):
                     cost += param['multiplier'] * ((groupSize) - group_info_full[param['group_property_name']])  # nopep8
 
+            if (param['operation'] == 'count_all_under'):
+                groupSize = len(groupNodesIDs) + 1
+                if (groupSize <= group_info_full[param['group_property_name']]):
+                    cost += param['multiplier'] * (group_info_full[param['group_property_name']] - (groupSize))  # nopep8
+
             if (param['operation'] == 'add_once'):
                 if (len(groupNodesIDs) == 0):
                     cost += param['multiplier'] * group_info_full[param['group_property_name']]  # nopep8

@@ -1103,153 +1103,174 @@
             "Workshop": "A",
             "GroupNum": 0,
             "NameFull": "A0",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 1,
             "Workshop": "A",
             "GroupNum": 1,
             "NameFull": "A1",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 2,
             "Workshop": "A",
             "GroupNum": 2,
             "NameFull": "A2",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 3,
             "Workshop": "A",
             "GroupNum": 3,
             "NameFull": "A3",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 4,
             "Workshop": "A",
             "GroupNum": 4,
             "NameFull": "A4",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 5,
             "Workshop": "A",
             "GroupNum": 5,
             "NameFull": "A5",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 6,
             "Workshop": "A",
             "GroupNum": 6,
             "NameFull": "A6",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 7,
             "Workshop": "A",
             "GroupNum": 7,
             "NameFull": "A7",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 8,
             "Workshop": "A",
             "GroupNum": 8,
             "NameFull": "A8",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 9,
             "Workshop": "A",
             "GroupNum": 9,
             "NameFull": "A9",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 10,
             "Workshop": "A",
             "GroupNum": 10,
             "NameFull": "A10",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 11,
             "Workshop": "A",
             "GroupNum": 11,
             "NameFull": "A11",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 12,
             "Workshop": "A",
             "GroupNum": 12,
             "NameFull": "A12",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 13,
             "Workshop": "A",
             "GroupNum": 13,
             "NameFull": "A13",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 14,
             "Workshop": "A",
             "GroupNum": 14,
             "NameFull": "A14",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 15,
             "Workshop": "A",
             "GroupNum": 15,
             "NameFull": "A15",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 16,
             "Workshop": "A",
             "GroupNum": 16,
             "NameFull": "A16",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 17,
             "Workshop": "A",
             "GroupNum": 17,
             "NameFull": "A17",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 18,
             "Workshop": "A",
             "GroupNum": 18,
             "NameFull": "A18",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 19,
             "Workshop": "A",
             "GroupNum": 19,
             "NameFull": "A19",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         },
         {
             "id": 20,
             "Workshop": "A",
             "GroupNum": 20,
             "NameFull": "A20",
-            "MinSize": 3
+            "MinSize": 3,
+            "TargetSize": 4
         }
     ],
     "alg_params": {
-        "TREE_PRUNE_TRESHOLD": 999999999999999,
-        "STEP_MAX_COST": 75,
-        "MINIMUM_ACCEPTABLE_SOLUTION": -1,
+        "TREE_PRUNE_TRESHOLD": 15000,
+        "STEP_MAX_COST": 250,
+        "MINIMUM_ACCEPTABLE_SOLUTION": 99999,
         "PRINT_RESULTS": false
     },
     "costing_params": {
@@ -1258,7 +1279,7 @@
                 {
                     "node_property_name": "Proposals",
                     "operation": "includes_node_property",
-                    "multiplier": -50
+                    "multiplier": -12.5
                 },
                 {
                     "node_property_name": "Engagement",
@@ -1274,7 +1295,13 @@
         },
         "node-group": {
             "pre-run-costs": [],
-            "runtime-costs": []
+            "runtime-costs": [
+                {
+                    "group_property_name": "TargetSize",
+                    "operation": "count_all_over",
+                    "multiplier": 150
+                }
+            ]
         },
         "group-group": {
             "post-run-costs": []

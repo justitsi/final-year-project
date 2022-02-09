@@ -1,8 +1,8 @@
 {
     "alg_params": {
-        "TREE_PRUNE_TRESHOLD": 1000,
-        "STEP_MAX_COST": 0,
-        "MINIMUM_ACCEPTABLE_SOLUTION": -1,
+        "TREE_PRUNE_TRESHOLD": 1500,
+        "STEP_MAX_COST": 200,
+        "MINIMUM_ACCEPTABLE_SOLUTION": 1200,
         "PRINT_RESULTS": false
     },
     "costing_params": {
@@ -27,7 +27,13 @@
         },
         "node-group": {
             "pre-run-costs": [],
-            "runtime-costs": []
+            "runtime-costs": [
+                {
+                    "group_property_name": "TargetSize",
+                    "operation": "count_all_over",
+                    "multiplier": 150
+                }
+            ]
         },
         "group-group": {
             "post-run-costs": []

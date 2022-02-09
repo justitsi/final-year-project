@@ -1,9 +1,9 @@
-num_nodes = 100
-num_groups = 20
+num_nodes = 6
+num_groups = 2
 
 num_ops = 0
 
-for i in range(0, num_nodes):
+for i in range(1, num_nodes):
     num_ops += pow(num_groups, i)
 
 print(f'Nodes: {num_nodes}, Groups: {num_groups}')
