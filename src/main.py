@@ -1,7 +1,7 @@
 import time
 import copy
 import json
-from modules.utils import removeElementFromArray, printTree
+from modules.utils import removeElementFromArray, removeIndexFromArray, printTree
 from modules.node_node_costing import NodeToNodeCostCalc
 from modules.node_to_group_costing import NodeToGroupCostCalc
 from modules.group_to_group_costing import GroupToGroupCostCalc
@@ -29,13 +29,13 @@ class jobRunner:
         self.GROUP_GROUP_COST_CALC = GroupToGroupCostCalc(self.NODES, self.GROUPS, self.COSTING["group-group"])  # nopep8
 
     # main recursive path finding function
-    def pairNodes(self, currentTree, remainingElements):
+    def pairNodes(self, currentPath, remainingElements):
         # take out id that will be added to the array
         idToAdd = remainingElements[0]
-        remainingElementsCopy = removeElementFromArray(remainingElements, remainingElements[0])  # nopep8
+        remainingElementsCopy = removeIndexFromArray(remainingElements, 0)  # nopep8
 
-        possibleTrees = []
-        returnTrees = []
+        possiblePaths = []
+        returnPaths = []
 
         if len(remainingElementsCopy) > 0:
             best_prospects = []
@@ -45,41 +45,42 @@ class jobRunner:
                 elementToAdd = {"groupID": i, "id": idToAdd}
 
                 # get cost to add
-                costToAdd = self.getNodeCost(currentTree, elementToAdd)
-                totalTreeCost = currentTree["cost"] + costToAdd
+                costToAdd = self.getNodeCost(currentPath, elementToAdd)
+                totalPathCost = currentPath["cost"] + costToAdd
 
-                # add info to possible trees if tested tree is OK
+                # add info to possible paths if tested tree is OK
                 if costToAdd < self.STEP_MAX_COST:
-                    if totalTreeCost < self.TREE_PRUNE_TRESHOLD:
+                    if totalPathCost < self.TREE_PRUNE_TRESHOLD:
                         # add prospect pairing to prospect array
-                        best_prospects.append([totalTreeCost, elementToAdd])
+                        best_prospects.append([totalPathCost, elementToAdd])
 
-                # sort prospect array and remove all undesirable pairings
+                # sort prospect array based on totalPathCost
                 best_prospects.sort(key=lambda item: item[0])
+                # only keep the first MAXIMUM_BRANCHES_PER_NODE best prospects
                 best_prospects = best_prospects[:self.MAXIMUM_BRANCHES_PER_NODE]  # nopep8
 
             # only consider the best branch prospects for further investigation
             for prospect in best_prospects:
-                # instanciate copy of currently tested tree
-                currentTreeCopy = copy.deepcopy(currentTree)
+                # instanciate copy of currently tested path
+                currentPathCopy = copy.deepcopy(currentPath)
 
-                currentTreeCopy["cost"] = prospect[0]
-                currentTreeCopy["nodes"].append(prospect[1])
+                currentPathCopy["cost"] = prospect[0]
+                currentPathCopy["nodes"].append(prospect[1])
 
-                possibleTrees.append(currentTreeCopy)
+                possiblePaths.append(currentPathCopy)
 
-            # re-run the function for valid candidate trees
-            for tree in possibleTrees:
-                childTrees = self.pairNodes(tree, remainingElementsCopy)
-                for childTree in childTrees:
-                    returnTrees.append(childTree)
+            # re-run the function for valid candidate paths
+            for path in possiblePaths:
+                childPaths = self.pairNodes(path, remainingElementsCopy)
+                for childPath in childPaths:
+                    returnPaths.append(childPath)
 
-                    # if returned tree contains all nodes and is bellow the minimum acceptable cost, stop execution
-                    if len(childTree["nodes"]) == len(self.NODES):
-                        if childTree["cost"] <= self.MINIMUM_ACCEPTABLE_SOLUTION:
-                            return returnTrees
+                    # if returned path contains all nodes and is bellow the minimum acceptable cost, stop execution
+                    if len(childPath["nodes"]) == len(self.NODES):
+                        if childPath["cost"] <= self.MINIMUM_ACCEPTABLE_SOLUTION:
+                            return returnPaths
 
-            return returnTrees
+            return returnPaths
 
         else:
             for i in range(0, self.NUMBER_OF_GROUPS):
@@ -87,22 +88,22 @@ class jobRunner:
                 elementToAddCopy = {"groupID": i, "id": idToAdd}
 
                 # get cost to add
-                costToAdd = self.getNodeCost(currentTree, elementToAddCopy)
-                totalTreeCost = currentTree["cost"] + costToAdd
+                costToAdd = self.getNodeCost(currentPath, elementToAddCopy)
+                totalPathCost = currentPath["cost"] + costToAdd
 
-                # add info to possible trees if tested tree is OK
+                # add info to possible paths if evaluated path is OK
                 if costToAdd < self.STEP_MAX_COST:
-                    if totalTreeCost < self.TREE_PRUNE_TRESHOLD:
-                        # instanciate copy of currently tested tree
-                        currentTreeCopy = copy.deepcopy(currentTree)
+                    if totalPathCost < self.TREE_PRUNE_TRESHOLD:
+                        # instanciate copy of currently tested path
+                        currentPathCopy = copy.deepcopy(currentPath)
 
-                        currentTreeCopy["nodes"].append(elementToAddCopy)
-                        currentTreeCopy["cost"] = totalTreeCost
+                        currentPathCopy["nodes"].append(elementToAddCopy)
+                        currentPathCopy["cost"] = totalPathCost
 
-                        possibleTrees.append(currentTreeCopy)
+                        returnPaths.append(currentPathCopy)
 
             # return bottom-level path costs
-            return possibleTrees
+            return returnPaths
 
     # returns the cost of adding an element to a specific path
     def getNodeCost(self, currentTree, el):

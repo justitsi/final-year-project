@@ -13,7 +13,7 @@ def printTree(tree):
     print(tree['cost'])
 
 
-# helper function to remove elements from arrays
+# helper function to remove elements from arrays without index
 def removeElementFromArray(arr, el):
     arr_copy = arr.copy()
 
@@ -22,4 +22,11 @@ def removeElementFromArray(arr, el):
             arr_copy.pop(i)
             break
 
+    return arr_copy
+
+
+# helper function to remove elements from arrays with index
+def removeIndexFromArray(arr, index):
+    arr_copy = arr.copy()
+    arr_copy.pop(index)
     return arr_copy
