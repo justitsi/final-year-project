@@ -195,452 +195,6 @@
             "id": 15
         },
         {
-            "Engagement": 0.9279999999999999,
-            "Workshop": "A",
-            "Response": 19.0,
-            "Proposals": [
-                32121467,
-                62120611,
-                32160193,
-                72113135
-            ],
-            "GID": 72062743,
-            "id": 16
-        },
-        {
-            "Engagement": 0.6169908114221091,
-            "Workshop": "A",
-            "Response": 19.0,
-            "Proposals": [
-                32121467,
-                62120611,
-                72062743,
-                32160193
-            ],
-            "GID": 72113135,
-            "id": 17
-        },
-        {
-            "Engagement": 0.9279999999999999,
-            "Workshop": "A",
-            "Response": 19.0,
-            "Proposals": [
-                32121467,
-                72062743,
-                32160193,
-                72113135
-            ],
-            "GID": 62120611,
-            "id": 18
-        },
-        {
-            "Engagement": 0.9279999999999999,
-            "Workshop": "A",
-            "Response": 19.0,
-            "Proposals": [
-                62120611,
-                72062743,
-                32160193,
-                72113135
-            ],
-            "GID": 32121467,
-            "id": 19
-        },
-        {
-            "Engagement": 0.883,
-            "Workshop": "A",
-            "Response": 19.0,
-            "Proposals": [
-                32121467,
-                62120611,
-                72062743,
-                72113135
-            ],
-            "GID": 32160193,
-            "id": 20
-        },
-        {
-            "Engagement": 0.9279999999999999,
-            "Workshop": "A",
-            "Response": 20.0,
-            "Proposals": [
-                42122702,
-                2118804,
-                92121809,
-                52127490
-            ],
-            "GID": 92111062,
-            "id": 21
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 20.0,
-            "Proposals": [
-                42122702,
-                92111062,
-                92121809,
-                52127490
-            ],
-            "GID": 2118804,
-            "id": 22
-        },
-        {
-            "Engagement": 0.8249418999151824,
-            "Workshop": "A",
-            "Response": 20.0,
-            "Proposals": [
-                42122702,
-                2118804,
-                92111062,
-                52127490
-            ],
-            "GID": 92121809,
-            "id": 23
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 20.0,
-            "Proposals": [
-                2118804,
-                92111062,
-                92121809,
-                52127490
-            ],
-            "GID": 42122702,
-            "id": 24
-        },
-        {
-            "Engagement": 0.6881752897936104,
-            "Workshop": "A",
-            "Response": 20.0,
-            "Proposals": [
-                42122702,
-                2118804,
-                92111062,
-                92121809
-            ],
-            "GID": 52127490,
-            "id": 25
-        },
-        {
-            "Engagement": 0.883,
-            "Workshop": "A",
-            "Response": 22.0,
-            "Proposals": [
-                92162360,
-                12113853,
-                82125836,
-                52115092
-            ],
-            "GID": 72050431,
-            "id": 26
-        },
-        {
-            "Engagement": 0.9055,
-            "Workshop": "A",
-            "Response": 22.0,
-            "Proposals": [
-                92162360,
-                82125836,
-                52115092,
-                72050431
-            ],
-            "GID": 12113853,
-            "id": 27
-        },
-        {
-            "Engagement": 0.8845811422109132,
-            "Workshop": "A",
-            "Response": 22.0,
-            "Proposals": [
-                92162360,
-                12113853,
-                82125836,
-                72050431
-            ],
-            "GID": 52115092,
-            "id": 28
-        },
-        {
-            "Engagement": 0.9055,
-            "Workshop": "A",
-            "Response": 22.0,
-            "Proposals": [
-                92162360,
-                12113853,
-                52115092,
-                72050431
-            ],
-            "GID": 82125836,
-            "id": 29
-        },
-        {
-            "Engagement": 0.9279999999999999,
-            "Workshop": "A",
-            "Response": 22.0,
-            "Proposals": [
-                12113853,
-                82125836,
-                52115092,
-                72050431
-            ],
-            "GID": 92162360,
-            "id": 30
-        },
-        {
-            "Engagement": 0.55,
-            "Workshop": "A",
-            "Response": 23.0,
-            "Proposals": [
-                52057503,
-                12057526,
-                12059407,
-                52057522
-            ],
-            "GID": 11940804,
-            "id": 31
-        },
-        {
-            "Engagement": 0.8109999999999999,
-            "Workshop": "A",
-            "Response": 23.0,
-            "Proposals": [
-                12057526,
-                12059407,
-                52057522,
-                11940804
-            ],
-            "GID": 52057503,
-            "id": 32
-        },
-        {
-            "Engagement": 0.7364017528979361,
-            "Workshop": "A",
-            "Response": 23.0,
-            "Proposals": [
-                52057503,
-                12057526,
-                12059407,
-                11940804
-            ],
-            "GID": 52057522,
-            "id": 33
-        },
-        {
-            "Engagement": 0.7697157195363302,
-            "Workshop": "A",
-            "Response": 23.0,
-            "Proposals": [
-                52057503,
-                12059407,
-                52057522,
-                11940804
-            ],
-            "GID": 12057526,
-            "id": 34
-        },
-        {
-            "Engagement": 0.7615000000000001,
-            "Workshop": "A",
-            "Response": 23.0,
-            "Proposals": [
-                52057503,
-                12057526,
-                52057522,
-                11940804
-            ],
-            "GID": 12059407,
-            "id": 35
-        },
-        {
-            "Engagement": 0.8335,
-            "Workshop": "A",
-            "Response": 25.0,
-            "Proposals": [
-                42162592,
-                52117956,
-                82126660,
-                42146411
-            ],
-            "GID": 32117888,
-            "id": 36
-        },
-        {
-            "Engagement": 0.9275766186033362,
-            "Workshop": "A",
-            "Response": 25.0,
-            "Proposals": [
-                42162592,
-                82126660,
-                32117888,
-                42146411
-            ],
-            "GID": 52117956,
-            "id": 37
-        },
-        {
-            "Engagement": 0.8917567147299972,
-            "Workshop": "A",
-            "Response": 25.0,
-            "Proposals": [
-                42162592,
-                52117956,
-                32117888,
-                42146411
-            ],
-            "GID": 82126660,
-            "id": 38
-        },
-        {
-            "Engagement": 0.46565733672603904,
-            "Workshop": "A",
-            "Response": 25.0,
-            "Proposals": [
-                42162592,
-                52117956,
-                82126660,
-                32117888
-            ],
-            "GID": 42146411,
-            "id": 39
-        },
-        {
-            "Engagement": 0.9505,
-            "Workshop": "A",
-            "Response": 25.0,
-            "Proposals": [
-                52117956,
-                82126660,
-                32117888,
-                42146411
-            ],
-            "GID": 42162592,
-            "id": 40
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 28.0,
-            "Proposals": [
-                2153746
-            ],
-            "GID": 42102926,
-            "id": 41
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 28.0,
-            "Proposals": [
-                42102926
-            ],
-            "GID": 2153746,
-            "id": 42
-        },
-        {
-            "Engagement": 0.8493026576194516,
-            "Workshop": "A",
-            "Response": 36.0,
-            "Proposals": [
-                42126709,
-                82124138,
-                22112573,
-                42118307
-            ],
-            "GID": 2027061,
-            "id": 43
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 36.0,
-            "Proposals": [
-                42126709,
-                82124138,
-                42118307,
-                2027061
-            ],
-            "GID": 22112573,
-            "id": 44
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 36.0,
-            "Proposals": [
-                42126709,
-                82124138,
-                22112573,
-                2027061
-            ],
-            "GID": 42118307,
-            "id": 45
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 36.0,
-            "Proposals": [
-                42126709,
-                22112573,
-                42118307,
-                2027061
-            ],
-            "GID": 82124138,
-            "id": 46
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 36.0,
-            "Proposals": [
-                82124138,
-                22112573,
-                42118307,
-                2027061
-            ],
-            "GID": 42126709,
-            "id": 47
-        },
-        {
-            "Engagement": 0.8632442748091603,
-            "Workshop": "A",
-            "Response": 42.0,
-            "Proposals": [],
-            "GID": 82120490,
-            "id": 48
-        },
-        {
-            "Engagement": 0.8755,
-            "Workshop": "A",
-            "Response": 49.0,
-            "Proposals": [
-                32161822
-            ],
-            "GID": 72024724,
-            "id": 49
-        },
-        {
-            "Engagement": 0.9235,
-            "Workshop": "A",
-            "Response": 49.0,
-            "Proposals": [
-                72024724
-            ],
-            "GID": 32161822,
-            "id": 50
-        },
-        {
-            "Engagement": 0.6585000000000001,
-            "Workshop": "A",
-            "Response": 53.0,
-            "Proposals": [],
-            "GID": 2113973,
-            "id": 51
-        },
-        {
             "Engagement": 0.5994584393553859,
             "Workshop": "A",
             "Response": 54.0,
@@ -650,7 +204,7 @@
                 2124175
             ],
             "GID": 91914061,
-            "id": 52
+            "id": 16
         },
         {
             "Engagement": 0.6706016398077467,
@@ -662,7 +216,7 @@
                 2124175
             ],
             "GID": 62117728,
-            "id": 53
+            "id": 17
         },
         {
             "Engagement": 0.44,
@@ -674,7 +228,7 @@
                 91914061
             ],
             "GID": 2124175,
-            "id": 54
+            "id": 18
         },
         {
             "Engagement": 0.7085,
@@ -686,7 +240,7 @@
                 2124175
             ],
             "GID": 92124745,
-            "id": 55
+            "id": 19
         },
         {
             "Engagement": 0.0007661860333616059,
@@ -694,7 +248,7 @@
             "Response": 100,
             "Proposals": [],
             "GID": 11806895,
-            "id": 56
+            "id": 20
         },
         {
             "Engagement": 0.8182175572519084,
@@ -702,7 +256,7 @@
             "Response": 100,
             "Proposals": [],
             "GID": 1904687,
-            "id": 57
+            "id": 21
         },
         {
             "Engagement": 0.0,
@@ -710,7 +264,7 @@
             "Response": 100,
             "Proposals": [],
             "GID": 11919472,
-            "id": 58
+            "id": 22
         },
         {
             "Engagement": 0.0,
@@ -718,7 +272,7 @@
             "Response": 100,
             "Proposals": [],
             "GID": 11919818,
-            "id": 59
+            "id": 23
         },
         {
             "Engagement": 0.6164310149844501,
@@ -726,7 +280,7 @@
             "Response": 100,
             "Proposals": [],
             "GID": 81929308,
-            "id": 60
+            "id": 24
         },
         {
             "Engagement": 0.00042974271981905565,
@@ -734,7 +288,7 @@
             "Response": 100,
             "Proposals": [],
             "GID": 71942079,
-            "id": 61
+            "id": 25
         },
         {
             "Engagement": 0.47983319197059654,
@@ -742,7 +296,7 @@
             "Response": 100,
             "Proposals": [],
             "GID": 81946763,
-            "id": 62
+            "id": 26
         },
         {
             "Engagement": 0.29685750636132313,
@@ -750,351 +304,27 @@
             "Response": 100,
             "Proposals": [],
             "GID": 12016215,
-            "id": 63
+            "id": 27
         },
         {
-            "Engagement": 0.3128486005089059,
+            "Engagement": 0.8755,
             "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 82021380,
-            "id": 64
+            "Response": 49.0,
+            "Proposals": [
+                32161822
+            ],
+            "GID": 72024724,
+            "id": 28
         },
         {
-            "Engagement": 0.8305087644896806,
+            "Engagement": 0.9235,
             "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 72023362,
-            "id": 65
-        },
-        {
-            "Engagement": 0.0,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 12027597,
-            "id": 66
-        },
-        {
-            "Engagement": 0.0,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 42028942,
-            "id": 67
-        },
-        {
-            "Engagement": 0.4315,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 12030808,
-            "id": 68
-        },
-        {
-            "Engagement": 0.0,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 52044102,
-            "id": 69
-        },
-        {
-            "Engagement": 0.8010343511450382,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 92060345,
-            "id": 70
-        },
-        {
-            "Engagement": 0.6785,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 92102093,
-            "id": 71
-        },
-        {
-            "Engagement": 0.7915000000000001,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 52106636,
-            "id": 72
-        },
-        {
-            "Engagement": 0.823,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 2107472,
-            "id": 73
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 2108025,
-            "id": 74
-        },
-        {
-            "Engagement": 0.8761297709923664,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 72108609,
-            "id": 75
-        },
-        {
-            "Engagement": 0.7029932145886345,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 12112240,
-            "id": 76
-        },
-        {
-            "Engagement": 0.4068631608707945,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 12112300,
-            "id": 77
-        },
-        {
-            "Engagement": 0.97,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 32113198,
-            "id": 78
-        },
-        {
-            "Engagement": 0.796,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 22114277,
-            "id": 79
-        },
-        {
-            "Engagement": 0.7598613231552163,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 52114364,
-            "id": 80
-        },
-        {
-            "Engagement": 0.6652147299971728,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 22117403,
-            "id": 81
-        },
-        {
-            "Engagement": 0.8175,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 62117405,
-            "id": 82
-        },
-        {
-            "Engagement": 0.7535000000000001,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 62119058,
-            "id": 83
-        },
-        {
-            "Engagement": 0.0,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 72121066,
-            "id": 84
-        },
-        {
-            "Engagement": 0.46552162849872775,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 52122698,
-            "id": 85
-        },
-        {
-            "Engagement": 0.23945433983601921,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 22125923,
-            "id": 86
-        },
-        {
-            "Engagement": 0.39088634435962677,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 12128078,
-            "id": 87
-        },
-        {
-            "Engagement": 0.9279999999999999,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 32130178,
-            "id": 88
-        },
-        {
-            "Engagement": 0.0,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 82130520,
-            "id": 89
-        },
-        {
-            "Engagement": 0.02654226745829799,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 22131544,
-            "id": 90
-        },
-        {
-            "Engagement": 0.7268265479219678,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 42131623,
-            "id": 91
-        },
-        {
-            "Engagement": 0.94,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 52131861,
-            "id": 92
-        },
-        {
-            "Engagement": 0.2956870229007633,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 92133728,
-            "id": 93
-        },
-        {
-            "Engagement": 0.239,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 42138912,
-            "id": 94
-        },
-        {
-            "Engagement": 0.7954564602770711,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 22140660,
-            "id": 95
-        },
-        {
-            "Engagement": 1.0,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 2147201,
-            "id": 96
-        },
-        {
-            "Engagement": 0.9055,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 92147307,
-            "id": 97
-        },
-        {
-            "Engagement": 0.8109999999999999,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 12153088,
-            "id": 98
-        },
-        {
-            "Engagement": 0.32243582131750076,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 62153639,
-            "id": 99
-        },
-        {
-            "Engagement": 0.796,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 62160128,
-            "id": 100
-        },
-        {
-            "Engagement": 0.9775,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 42160180,
-            "id": 101
-        },
-        {
-            "Engagement": 0.739,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 62160200,
-            "id": 102
-        },
-        {
-            "Engagement": 0.7836837715578173,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 2160434,
-            "id": 103
-        },
-        {
-            "Engagement": 0.7799037319762511,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 92160618,
-            "id": 104
-        },
-        {
-            "Engagement": 0.878,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 2161055,
-            "id": 105
-        },
-        {
-            "Engagement": 0.823,
-            "Workshop": "A",
-            "Response": 100,
-            "Proposals": [],
-            "GID": 82167942,
-            "id": 106
+            "Response": 49.0,
+            "Proposals": [
+                72024724
+            ],
+            "GID": 32161822,
+            "id": 29
         }
     ],
     "groups": [
@@ -1104,7 +334,7 @@
             "GroupNum": 0,
             "NameFull": "A0",
             "MinSize": 3,
-            "TargetSize": 4
+            "TargetSize": 5
         },
         {
             "id": 1,
@@ -1112,7 +342,7 @@
             "GroupNum": 1,
             "NameFull": "A1",
             "MinSize": 3,
-            "TargetSize": 4
+            "TargetSize": 5
         },
         {
             "id": 2,
@@ -1120,7 +350,7 @@
             "GroupNum": 2,
             "NameFull": "A2",
             "MinSize": 3,
-            "TargetSize": 4
+            "TargetSize": 5
         },
         {
             "id": 3,
@@ -1128,7 +358,7 @@
             "GroupNum": 3,
             "NameFull": "A3",
             "MinSize": 3,
-            "TargetSize": 4
+            "TargetSize": 5
         },
         {
             "id": 4,
@@ -1136,7 +366,7 @@
             "GroupNum": 4,
             "NameFull": "A4",
             "MinSize": 3,
-            "TargetSize": 4
+            "TargetSize": 5
         },
         {
             "id": 5,
@@ -1144,135 +374,15 @@
             "GroupNum": 5,
             "NameFull": "A5",
             "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 6,
-            "Workshop": "A",
-            "GroupNum": 6,
-            "NameFull": "A6",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 7,
-            "Workshop": "A",
-            "GroupNum": 7,
-            "NameFull": "A7",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 8,
-            "Workshop": "A",
-            "GroupNum": 8,
-            "NameFull": "A8",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 9,
-            "Workshop": "A",
-            "GroupNum": 9,
-            "NameFull": "A9",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 10,
-            "Workshop": "A",
-            "GroupNum": 10,
-            "NameFull": "A10",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 11,
-            "Workshop": "A",
-            "GroupNum": 11,
-            "NameFull": "A11",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 12,
-            "Workshop": "A",
-            "GroupNum": 12,
-            "NameFull": "A12",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 13,
-            "Workshop": "A",
-            "GroupNum": 13,
-            "NameFull": "A13",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 14,
-            "Workshop": "A",
-            "GroupNum": 14,
-            "NameFull": "A14",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 15,
-            "Workshop": "A",
-            "GroupNum": 15,
-            "NameFull": "A15",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 16,
-            "Workshop": "A",
-            "GroupNum": 16,
-            "NameFull": "A16",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 17,
-            "Workshop": "A",
-            "GroupNum": 17,
-            "NameFull": "A17",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 18,
-            "Workshop": "A",
-            "GroupNum": 18,
-            "NameFull": "A18",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 19,
-            "Workshop": "A",
-            "GroupNum": 19,
-            "NameFull": "A19",
-            "MinSize": 3,
-            "TargetSize": 4
-        },
-        {
-            "id": 20,
-            "Workshop": "A",
-            "GroupNum": 20,
-            "NameFull": "A20",
-            "MinSize": 3,
-            "TargetSize": 4
+            "TargetSize": 5
         }
     ],
     "alg_params": {
-        "TREE_PRUNE_TRESHOLD": 15000,
-        "STEP_MAX_COST": 250,
-        "MINIMUM_ACCEPTABLE_SOLUTION": 99999,
+        "TREE_PRUNE_TRESHOLD": 1000,
+        "STEP_MAX_COST": 200,
+        "MINIMUM_ACCEPTABLE_SOLUTION": 1000,
         "PRINT_RESULTS": false,
-        "MAX_PATHS_PER_NODE": 5
+        "MAX_PATHS_PER_NODE": 6
     },
     "costing_params": {
         "node-node": {
@@ -1280,12 +390,12 @@
                 {
                     "node_property_name": "Proposals",
                     "operation": "includes_node_property",
-                    "multiplier": -12.5
+                    "multiplier": -100
                 },
                 {
                     "node_property_name": "Engagement",
                     "operation": "difference_absolute",
-                    "multiplier": 100
+                    "multiplier": 200
                 },
                 {
                     "node_property_name": "Response",
@@ -1300,7 +410,7 @@
                 {
                     "group_property_name": "TargetSize",
                     "operation": "count_all_over",
-                    "multiplier": 150
+                    "multiplier": 250
                 }
             ]
         },

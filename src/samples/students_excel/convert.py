@@ -54,7 +54,7 @@ def generateJobLabels(WSNames, WSCounts, tSize, minSize):
                 'GroupNum': k,
                 'NameFull': f'{WSNames[i]}{k}',
                 'MinSize': minSize,
-                'TargetSize': tSize-1
+                'TargetSize': tSize
             })
             cnt += 1
     return job_labels

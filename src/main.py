@@ -107,20 +107,16 @@ class jobRunner:
 
     # returns the cost of adding an element to a specific path
     def getNodeCost(self, currentTree, el):
-        cost = 0
-
-        # get nodeIDs for nodes in group
-        nodesInGroup = []
+        # get nodeIDs for nodes in label
+        nodesInLabel = []
         for node in currentTree["nodes"]:
             if node["groupID"] == el["groupID"]:
-                nodesInGroup.append(node["id"])
+                nodesInLabel.append(node["id"])
 
         # calculate cost for group in grouping
-        cost += self.NODE_GROUP_COST_CALC.getNodeToGroupCost(nodesInGroup, el["groupID"], el["id"])  # nopep8
-
+        cost = self.NODE_GROUP_COST_CALC.getNodeToGroupCost(nodesInLabel, el["groupID"], el["id"])  # nopep8
         # calculate cost for nodes in grouping
-        cost += self.NODE_NODE_COST_CALC.getNodeToNodesCost(
-            nodesInGroup, el["id"])
+        cost += self.NODE_NODE_COST_CALC.getNodeToNodesCost(nodesInLabel, el["id"])  # nopep8
 
         return cost
 
@@ -228,7 +224,7 @@ def main():
     mentoring_loc = './samples/mentoring/job.json'
     real_students_loc = './samples/students_excel/job.json'
 
-    with open(students_loc, encoding="utf-8") as F:
+    with open(real_students_loc, encoding="utf-8") as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)
