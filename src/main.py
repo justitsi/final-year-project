@@ -189,8 +189,18 @@ class jobRunner:
 
     # run node pairing job
     def getBestPairings(self):
+        # evalaute best label membership for first element
+        # by finding the lowest cost for node-label pairing
+        lowest_cost = 0
+        lowest_index = 0
+        for i in range(0, len(self.GROUPS)):
+            cost = self.NODE_GROUP_COST_CALC.getNodeToGroupCost([], i, 0)
+            if (cost < lowest_cost):
+                lowest_cost = cost
+                lowest_index = i
+
         # instantiate tree and nodes to be explored
-        currentTree = {"nodes": [{"groupID": 1, "id": self.NODES[0]["id"]}], "cost": 0}  # nopep8
+        currentTree = {"nodes": [{"groupID": lowest_index, "id": self.NODES[0]["id"]}], "cost": lowest_cost}  # nopep8
         remainginNodes = []
         for node in self.NODES:
             remainginNodes.append(node["id"])
