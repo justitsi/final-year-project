@@ -27,7 +27,13 @@
             ]
         },
         "group-group": {
-            "post-run-costs": []
+            "post-run-costs": [
+                {
+                    "operation": "nodes_inlcude_property",
+                    "node_propery_to_check": "Name",
+                    "multiplier": 100
+                }
+            ]
         }
     },
     "groups": [

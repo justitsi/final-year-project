@@ -13,7 +13,7 @@ class NodeToNodeCostCalc:
     # array of node ids from path ([int]) and id (int)
     def getNodeToNodesCost(self, nodesInGroup, nodeToAddID):
         cost = 0
-        # check for affinities
+        # calcualte cost based on cost of pairing each node with each node
         for groupNode in nodesInGroup:
             cost += self.getNodeToNodeCost(groupNode, nodeToAddID)
 

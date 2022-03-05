@@ -191,6 +191,7 @@ class jobRunner:
     def getBestPairings(self):
         # evalaute best label membership for first element
         # by finding the lowest cost for node-label pairing
+        # assumes nodeIDs and groupIDs are sequential in dataset, e.g.: 0, 1, 2, 3...
         lowest_cost = 0
         lowest_index = 0
         for i in range(0, len(self.GROUPS)):
@@ -260,9 +261,9 @@ def main():
         printTree(best_tree)
         print()
 
-        # best_order = runner.getOptimalGroupOrder(best_tree)
+        best_order = runner.getOptimalGroupOrder(best_tree)
 
-        # print(best_order['groups'])
+        print(best_order['groups'])
         # print()
         print(f"Number of solutions: {len(possible_trees)}")
         print(f"Avg. cost: {str(tree_cost_sum/len(possible_trees))}")
