@@ -44,7 +44,9 @@
                 }
             ]
         },
-        "group-group": {}
+        "group-group": {
+            "post-run-costs": []
+        }
     },
     "groups": [
         {

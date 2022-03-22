@@ -230,6 +230,7 @@ class jobRunner:
 def main():
     start = time.time()
     output_location = './tmp_output.json'
+    events_loc = './samples/events/10_3.json'
     marketing_loc = './samples/marketing/20_2.json'
     students_loc = './samples/students/12_4.json'
     mentoring_loc = './samples/mentoring/job.json'
