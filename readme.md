@@ -22,6 +22,9 @@ As mentioned before, there are two types of costing kernels:
 ## Solution evaluation order
 The decision tree traversal function explores the tree in a top-down, left-to-right approach. This means that subject to effective pruning parameters, solutions from that area of the solution space will be favoured. Practically this is not a problem, as the distribution of solutions in the solution space is random, and users can force exploration of the full space by adjusting the pruning parameters of the algorithm.
 
+![EvaluationOrder](https://user-images.githubusercontent.com/40371335/162235562-d65bcbb4-048c-491d-a3a9-8c571be22aab.png)
+
+
 ## Pruning parameters
 As mentioned earlier, the algorithm provides pruning parameters to reduce the amount of the solution space it explores. These pruning rules are crucial to developing quick-running optimisation jobs because of the complexity of the algorithm. The pruning rules that the algorithm offers are as follows:
 
