@@ -1,6 +1,7 @@
 import time
 import copy
 import json
+import sys
 from modules.utils import removeElementFromArray, removeIndexFromArray, printTree
 from modules.node_node_costing import NodeToNodeCostCalc
 from modules.node_to_group_costing import NodeToGroupCostCalc
@@ -238,7 +239,13 @@ def main():
     timeslot_loc = './samples/timeslots/job.json'
     real_students_loc = './samples/students_excel/job.json'
 
-    with open(real_students_loc, encoding="utf-8") as F:
+    input_loc = real_students_loc
+
+    if (len(sys.argv) > 1):
+        print("Using file: "+str(sys.argv[1]))
+        input_loc = str(sys.argv[1])
+
+    with open(input_loc, encoding="utf-8") as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)

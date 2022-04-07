@@ -1,0 +1,141 @@
+{
+    "alg_params": {
+        "TREE_PRUNE_TRESHOLD": 2000,
+        "STEP_MAX_COST": 999999999999999999,
+        "MINIMUM_ACCEPTABLE_SOLUTION": -1,
+        "PRINT_RESULTS": false,
+        "MAX_PATHS_PER_NODE": 4
+    },
+    "costing_params": {
+        "node-node": {
+            "pre-run-costs": [
+                {
+                    "node_property_name": "type",
+                    "operation": "is_equal",
+                    "multiplier": 1000
+                }
+            ]
+        },
+        "node-group": {
+            "pre-run-costs": [],
+            "runtime-costs": [
+                {
+                    "group_property_name": "target_size",
+                    "operation": "count_all_over",
+                    "multiplier": 1000
+                }
+            ]
+        },
+        "group-group": {
+            "post-run-costs": [
+                {
+                    "operation": "nodes_inlcude_property",
+                    "node_propery_to_check": "Name",
+                    "multiplier": 100
+                }
+            ]
+        }
+    },
+    "groups": [
+        {
+            "id": 0,
+            "target_size": 2
+        },
+        {
+            "id": 1,
+            "target_size": 2
+        },
+        {
+            "id": 2,
+            "target_size": 2
+        },
+        {
+            "id": 3,
+            "target_size": 2
+        },
+        {
+            "id": 4,
+            "target_size": 2
+        },
+        {
+            "id": 5,
+            "target_size": 2
+        },
+        {
+            "id": 6,
+            "target_size": 2
+        }
+    ],
+    "nodes": [
+        {
+            "id": 0,
+            "type": "Carb",
+            "Name": "Rice"
+        },
+        {
+            "id": 1,
+            "type": "Carb",
+            "Name": "Rice"
+        },
+        {
+            "id": 2,
+            "type": "Carb",
+            "Name": "Patatoes"
+        },
+        {
+            "id": 3,
+            "type": "Carb",
+            "Name": "Patatoes"
+        },
+        {
+            "id": 4,
+            "type": "Carb",
+            "Name": "Patatoes"
+        },
+        {
+            "id": 5,
+            "type": "Carb",
+            "Name": "Corn and Peas"
+        },
+        {
+            "id": 6,
+            "type": "Carb",
+            "Name": "Corn and Peas"
+        },
+        {
+            "id": 7,
+            "type": "Main",
+            "Name": "Beef"
+        },
+        {
+            "id": 8,
+            "type": "Main",
+            "Name": "Beef"
+        },
+        {
+            "id": 9,
+            "type": "Main",
+            "Name": "Fish"
+        },
+        {
+            "id": 10,
+            "type": "Main",
+            "Name": "Fish"
+        },
+        {
+            "id": 11,
+            "type": "Main",
+            "Name": "Chicken"
+        },
+        {
+            "id": 12,
+            "type": "Main",
+            "Name": "Chicken"
+        },
+        {
+            "id": 13,
+            "type": "Main",
+            "Name": "Pork"
+        }
+    ]
+}

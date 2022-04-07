@@ -3,3 +3,4 @@ __pycache__
 tmp*
 ~$*
 tmp_output.json
+experiment_output.txt
