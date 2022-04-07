@@ -103,6 +103,8 @@ class NodeToGroupCostCalc:
                 if (not includes):
                     cost = costParam['multiplier']
 
+            if (costParam['operation'] == 'affinities_list_prioritised'):
+                pass
         return cost
 
     # lookup full group properties by id

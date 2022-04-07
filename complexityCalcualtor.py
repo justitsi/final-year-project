@@ -1,5 +1,5 @@
-num_nodes = 6
-num_groups = 2
+num_nodes = 12
+num_groups = 6
 
 num_ops = 0
 

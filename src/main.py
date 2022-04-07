@@ -234,9 +234,10 @@ def main():
     students_loc = './samples/students/12_4.json'
     mentoring_loc = './samples/mentoring/job.json'
     recepies_loc = './samples/recepies/14_7.json'
+    timeslot_loc = './samples/timeslots/job.json'
     real_students_loc = './samples/students_excel/job.json'
 
-    with open(recepies_loc, encoding="utf-8") as F:
+    with open(real_students_loc, encoding="utf-8") as F:
         json_data = json.loads(F.read())
 
     runner = jobRunner(json_data)
@@ -261,9 +262,9 @@ def main():
         printTree(best_tree)
         print()
 
-        best_order = runner.getOptimalGroupOrder(best_tree)
+        # best_order = runner.getOptimalGroupOrder(best_tree)
 
-        print(best_order['groups'])
+        # print(best_order['groups'])
         # print()
         print(f"Number of solutions: {len(possible_trees)}")
         print(f"Avg. cost: {str(tree_cost_sum/len(possible_trees))}")
