@@ -267,20 +267,22 @@ def main():
             if tree["cost"] <= best_tree["cost"]:
                 best_tree = tree
 
-        printTree(best_tree)
-        print()
+        best_order = runner.getOptimalGroupOrder(best_tree)
 
-        # best_order = runner.getOptimalGroupOrder(best_tree)
+        print(best_order['groups'])
 
-        # print(best_order['groups'])
-        # print()
         print(f"Number of solutions: {len(possible_trees)}")
         print(f"Avg. cost: {str(tree_cost_sum/len(possible_trees))}")
 
         # save results as json file
         # delete job file and generate new one
         with open(output_location, 'w') as f:
-            json.dump(best_tree, f)
+            json.dump(
+                {
+                    "nodes": best_tree,
+                    "groups": best_order
+
+                }, f)
 
     # profiling/ calculate execution time of program
     end = time.time()
